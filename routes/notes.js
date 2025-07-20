@@ -49,6 +49,41 @@ router.get("/", async(req, res,) => {
           .json({ message: "User is not authorized to update this note." });
       }
 
-      
+      // this needs an authorization check//
+      const note = await Note.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+      });
+      res.json(note);
+    } catch (err) {
+      res.status(500).json(err);
     }
-  })
+  });
+
+  // DELETE  /api/notes/:id - Delete a note//
+  router.delete("/:id", async(req, res)=> {
+    try {
+      const noteToDelete = await Note.findById(req.params.id);
+
+      if(!noteToDelete) {
+        return res.status(404).json({
+          message: "No note found with this id" 
+        });
+      }
+      
+      if (noteToDelete.user.toString() !== req.user._id.toString) {
+        return res
+        .status (403)
+        .json({ message: "User is not authorized to delete this note." });
+      }
+      // this needs an authorization check//
+      const note = await Note.findByIdAndDelete(req.params.id);
+      if (!note) {
+        return res.status(404).json({ message: "No note found with this id!" });
+      }
+      res.json({ message: "Note deleted" });
+    } catch (err) {
+      res.status (500).json(err);
+    }
+  });
+
+  export default router;
