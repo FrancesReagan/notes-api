@@ -33,3 +33,22 @@ router.get("/", async(req, res,) => {
       res.status(400).json(err);
     }
   });
+
+  // PUT  /api/notes/:id  - update a note//
+  router.put("/:id", async(req, res)=> {
+    try {
+      const noteToUpdate = await Note.findById(req.params.id);
+
+      if(!noteToUpdate) {
+        return res.status(404).json({ message: "No note found with this id!" });
+      }
+
+      if  (noteToUpdate.user.toString() !== req.user._id.toString()) {
+        return res
+          .status(403)
+          .json({ message: "User is not authorized to update this note." });
+      }
+
+      
+    }
+  })
