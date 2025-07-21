@@ -29,4 +29,14 @@ createdAt: {
   default: Date.now,
 },
 
-})
+user: {
+  type: Schema.Types.ObjectId,
+  ref: "User",
+  required: true,
+},
+
+});
+
+const Bookmark = mongoose.model("Bookmark", BookmarkSchema);
+
+export default Bookmark;
