@@ -1,4 +1,5 @@
 __Notes API__ 
+
 A secure RESTful API for managing personal notes with user authentication and authorization. Users can only access and manage their own notes.
 
 _Features_
@@ -71,17 +72,24 @@ auth required: yes
 User Schema
 {
    username: String (required, unique),
+   
    email: String (required, unique),
+   
    password: String (required, hashed)
+   
 }
 
 
 Note Schema
 {
   title: String (required),
+  
   content: String (required),
+  
   user: ObjectId (required, references User),
+  
   createdAt: Date (default: now)
+  
 }
 
 --------------------------------------------------
