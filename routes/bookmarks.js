@@ -49,3 +49,28 @@ router.put("/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// DELETE  /api/bookmarks/:id -delete a bookmark//
+router.delete("/:id", async (req, res) => {
+  try {
+    const bookmarkToDelete = await Bookmark.findById(req.params.id);
+
+    if(!bookmarkToDelete) {
+      return res.status(404).json({
+        message: "no bookmark found with this id"
+      });
+    }
+    // authorization check//
+    if(bookmarkToDelete.user.toString()!==req.user._id.toString()) {
+      return res.status(403).json({ message: "User is not authorized to delete this bookmark. "});
+    }
+
+    await Bookmark.findByIdAndDelete(req.params.id);
+    res.json({ message: "Bookmark deleted" });
+  } catch (error) {
+    res.status(500).json(err);
+    
+  }
+});
+
+export default router;
