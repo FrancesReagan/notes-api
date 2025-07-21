@@ -28,7 +28,7 @@ router.get("/", async (req, res,) => {
       const note = await Note.create({
         ...req.body,
         // the user ID needs to be added here//
-        // the bug was req.user.id--changed to _id//
+        // TASK 1 part b and Task 2 the bug was req.user.id--changed to _id//
         user: req.user._id,
       });
       res.status(201).json(note);
@@ -45,7 +45,7 @@ router.get("/", async (req, res,) => {
       if(!noteToUpdate) {
         return res.status(404).json({ message: "No note found with this id!" });
       }
-
+// TASK 2--updated note with ownership check and returns 403 unauthorized access//
       if  (noteToUpdate.user.toString() !== req.user._id.toString()) {
         return res
           .status(403)

@@ -15,6 +15,7 @@ createdAt: {
   default: Date.now,
 },
 user: {
+  // Task1--associate Notes with Users part A//
   type: Schema.Types.ObjectId,
   ref: "User",
   required: true,
