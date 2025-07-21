@@ -16,5 +16,6 @@ app.use("/api/users", usersRouter);
 app.use("/api/notes", notesRouter); 
 
 db.once("open", () => {
-  app.listen(PORT, console.log(`🌍 Now listening on localhost:$ ${POST}`));
+  // original code was missing () and added arrow function--removed extra $ and changed POST to PORT/
+  app.listen(PORT, () => console.log(`🌍 Now listening on localhost: ${PORT}`));
 });

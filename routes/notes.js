@@ -1,5 +1,5 @@
 import express from "express";
-import Note from "../models/Notes";
+import Note from "../models/Notes.js";
 import { authMiddleware } from "../utils/auth.js";
 
 const router = express.Router();
@@ -9,11 +9,13 @@ router.use(authMiddleware);
 
 // GET  /api/notes - get all notes for the logged-in user//
 // Fix this route--this is the route that currently has the flaw//
-router.get("/", async(req, res,) => {
+router.get("/", async (req, res,) => {
   // this currently finds all notes in the database.//
   // it should only find notes owned by the logged in user //
   try {
-    const notes = await Note.find({ user: req.user.id });
+    // as need it to be user: req.user._id as the auth middleware sets req.user = data where the data has _id not just id
+    // as it was  req.user.id would return all notes or cause errors//
+    const notes = await Note.find({ user: req.user._id })
     res.json(notes);
   } catch (err) {
     res.status(500).json(err);
@@ -26,7 +28,8 @@ router.get("/", async(req, res,) => {
       const note = await Note.create({
         ...req.body,
         // the user ID needs to be added here//
-        user: req.user.id,
+        // the bug was req.user.id--changed to _id//
+        user: req.user._id,
       });
       res.status(201).json(note);
     } catch (err) {
@@ -69,8 +72,8 @@ router.get("/", async(req, res,) => {
           message: "No note found with this id" 
         });
       }
-      
-      if (noteToDelete.user.toString() !== req.user._id.toString) {
+      // original code given was missing () after toString//
+      if (noteToDelete.user.toString() !== req.user._id.toString()) {
         return res
         .status (403)
         .json({ message: "User is not authorized to delete this note." });
@@ -87,3 +90,6 @@ router.get("/", async(req, res,) => {
   });
 
   export default router;
+
+  // the original code had issues that would have broken the security features----as req.user._id is the 
+  // correct and the missing () in the POST and Delete route--//
