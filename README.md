@@ -108,26 +108,32 @@ new HTTP request in Postman---choose `POST` and with localhost:3000 or similar u
 "text" choose instead `JSON`--then in the empty body area type:  
 
 `{
+
     "username": "johndoe",
     
     "email": "john@example.com",
     
     "password": "password123"
+    
 }
 
 this should give back something like this:
 
 {
+
   "token": "eyJhbGc10JIUzINiIsInR5cCI6kpXVJ9--etc"
   
   "user": 
   
+  
   {
+  
     "username": "johndoe",
     
     "email": "john@example.com",
     
     "_id": "..."
+    
 }
 }
 
@@ -138,9 +144,11 @@ POST  /api/users/login
 content-type: application/json
 
 {
+
   "email": "john@example.com",
   
   "passoword": "password123"
+  
 }
 
 ---------------------------------------
@@ -150,9 +158,11 @@ Content-type: application/json
 authorization: bearer your_jwt_token_here
 
 {
+
   "title": "My First Note",
   
   "content": "This is the content of my first note."
+  
 }
 
 --------------------------------------------------------------------
@@ -169,9 +179,11 @@ content-type: application/json
 authorization: Bearer your_jwt_token_here
 
 {
+
   "title": "Updated note title",
   
   "content": "updated note content"
+  
 }
 
 -----------------------------------------------------------------
