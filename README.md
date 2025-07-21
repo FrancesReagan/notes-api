@@ -143,6 +143,7 @@ GET /api/notes
 authorization: Bearer your_jwt_token_here
 
 ---------------------------------------------------------------
+
 "Update a Note"
 PUT  /api/notes/note_id_here
 content-type: application/json
@@ -151,6 +152,7 @@ authorization: Bearer your_jwt_token_here
   "title": "Updated note title",
   "content": "updated note content"
 }
+
 -----------------------------------------------------------------
 "Delete a Note"
 DELETE  /api/notes/note_id_here
