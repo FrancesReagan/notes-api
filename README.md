@@ -65,3 +65,28 @@ method: DELETE
 endpoint: /api/notes/:id 
 description: delete note (if owner)
 auth required: yes 
+
+------------------------------------
+
+User Schema
+{
+   username: String (required, unique),
+   email: String (required, unique),
+   password: String (required, hashed)
+}
+
+
+Note Schema
+{
+  title: String (required),
+  content: String (required),
+  user: ObjectId (required, references User),
+  createdAt: Date (default: now)
+}
+
+--------------------------------------------------
+
+_Authentication_
+This API uses JWT(JSON Web Tokens) for authentication. 
+Include the token in the Authorization header: in postman 
+
