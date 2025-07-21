@@ -210,6 +210,36 @@ __Project Structure__
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+__Tech Used__
+*Node.js --runtime environment
+*Express.js - web framework
+*MongoDB - database
+*Mongoose - MongoDB object modeling
+*JWT - authentication tokens
+*bcrypt - password hashing --- salting too
+*dotenv - environment variable management
+-------------------------------------------
+
+_Testing Workflow_
+1. Register 2 different users to test authorization
+2. login and save JWT tokens for each user
+3. create notes with each user's token
+4. verify isolation - user A cannot access user B's notes
+5. test CRUD operations with correct or proper authorization
+6. test error cases--invalid tokens, unauthorized access, etc.
+
+-----------------------------------------------------------------------
+
+_Error Handling_
+The API includes:
+*200 - success (GET,PUT)
+*201 - created (POST)
+*400 - bad request (validation errors)
+*401 - unauthorized (authentication required)
+*403 - forbidden (not authorized for this resource)
+* 404 - resource not found
+* 500 - internal server error
+
 
 
 
