@@ -89,4 +89,53 @@ Note Schema
 _Authentication_
 This API uses JWT(JSON Web Tokens) for authentication. 
 Include the token in the Authorization header: in postman 
+`authorization: Bearer your_jwt_token_here`  The simple one "space" between `Bearer` and `your_jwt_token_here` is extremely important to have
+
+-----------------------------
+_Example_
+"Register a User"
+new HTTP request in Postman---choose `POST` and with localhost:3000 or similar use this endpoint: `/api/users/register` then choose content type: `application` then `body` then `raw` thenin dropdown that first says
+"text" choose instead `JSON`--then in the empty body area type:  
+`{
+    "username": "johndoe",
+    "email": "john@example.com",
+    "password": "password123"
+}
+
+this should give back something like this:
+
+{
+  "token": "eyJhbGc10JIUzINiIsInR5cCI6kpXVJ9--etc"
+  "user": 
+  {
+    "username": "johndoe",
+    "email": "john@example.com",
+    "_id": "..."
+}
+}
+
+--------------------------------------------
+"Login User"
+short hand version
+POST  /api/users/login
+content-type: application/json
+
+{
+  "email": "john@example.com",
+  "passoword": "password123"
+}
+
+---------------------------------------
+"Create a Note (Authenticated)"
+POST  /api/notes
+Content-type: application/json
+authorization: bearer your_jwt_token_here
+
+{
+  "title": "My First Note",
+  "content": "This is the content of my first note."
+}
+  
+ 
+
 
