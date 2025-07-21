@@ -70,6 +70,7 @@ auth required: yes
 ------------------------------------
 
 User Schema
+
 {
    username: String (required, unique),
    
@@ -81,6 +82,7 @@ User Schema
 
 
 Note Schema
+
 {
   title: String (required),
   
