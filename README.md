@@ -40,8 +40,28 @@ auth requried: no
 
 
 ========================================================
-Notes(all requier authenication)
+Notes(all require authenication)
 method: GET
 endpoint: /api/notes
 desciption: get all user's notes
 auth required: Yes
+
+method: GET
+endpoint: /api/notes/:id 
+description: get specific note (if it is owned)
+auth required: Yes
+
+method: POST
+endpoint: /api/notes
+description: create a new note
+auth required: yes
+
+method: PUT
+endpoint: /api/notes/:id 
+description: update note (if owned)
+auth required: yes
+
+method: DELETE
+endpoint: /api/notes/:id 
+description: delete note (if owner)
+auth required: yes 
