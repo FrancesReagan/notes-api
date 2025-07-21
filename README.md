@@ -1,4 +1,4 @@
-__Notes API_ 
+__Notes API__ 
 A secure RESTful API for managing personal notes with user authentication and authorization. Users can only access and manage their own notes.
 
 _Features_
