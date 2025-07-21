@@ -194,6 +194,25 @@ authorization: Bearer your_jwt_token_here
 -----------------------------------------------
 _Security Features_
 
+ "authorization rules"
+ 
+ *users can only view, edit, and delete their own notes"; * attempting to access another user's notes returns `403 Forbidden`; * all endpoints require valid JWT authentication; * passwords are hashed using bcrypt
+
+
+"error responses"
+
+*`401 unauthorized` - missing or invalid JWT token; * `403 forbidden` - user not authorized to access the resource; *`404 no found` - note does not exist; `400 bad request` - validation errors
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+__Project Structure__
+
+<img width="145" height="324" alt="image" src="https://github.com/user-attachments/assets/af225e62-0eab-40a2-b2d4-bed081f0d1b4" />
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
  
 
 
