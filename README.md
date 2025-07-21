@@ -211,13 +211,21 @@ __Project Structure__
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 __Tech Used__
+
 *Node.js --runtime environment
+
 *Express.js - web framework
+
 *MongoDB - database
+
 *Mongoose - MongoDB object modeling
+
 *JWT - authentication tokens
+
 *bcrypt - password hashing --- salting too
+
 *dotenv - environment variable management
+
 -------------------------------------------
 
 _Testing Workflow_
