@@ -4,14 +4,14 @@ import { authMiddleware } from "../utils/auth.js";
 
 const router = express.Router();
 
-// apply authMiddleware to all routes in this file//
+// apply authMiddleware to all routes in this file---all will be protected//
 router.use(authMiddleware);
 
 // GET  /api/notes - get all notes for the logged-in user//
 // Fix this route--this is the route that currently has the flaw//
 router.get("/", async (req, res,) => {
-  // this currently finds all notes in the database.//
-  // it should only find notes owned by the logged in user //
+  // finds all notes in the database.//
+  // but should only find notes owned by the logged in user //
   try {
     // as need it to be user: req.user._id as the auth middleware sets req.user = data where the data has _id not just id
     // as it was  req.user.id would return all notes or cause errors//
@@ -52,7 +52,7 @@ router.get("/", async (req, res,) => {
           .json({ message: "User is not authorized to update this note." });
       }
 
-      // this needs an authorization check//
+      // authorization check//
       const note = await Note.findByIdAndUpdate(req.params.id, req.body, {
         new: true,
       });
@@ -78,11 +78,11 @@ router.get("/", async (req, res,) => {
         .status (403)
         .json({ message: "User is not authorized to delete this note." });
       }
-      // this needs an authorization check//
+      //  authorization check//
       const note = await Note.findByIdAndDelete(req.params.id);
-      if (!note) {
-        return res.status(404).json({ message: "No note found with this id!" });
-      }
+      // if (!note) {
+      //   return res.status(404).json({ message: "No note found with this id!" });
+      // }
       res.json({ message: "Note deleted" });
     } catch (err) {
       res.status (500).json(err);
