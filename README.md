@@ -101,10 +101,66 @@ content-type:application/json
 }
 
 *GitHub OAuth (browser-based)*
+
 GET  /api/users/auth/github   (redirects to Github)
+
 GET  /api/users/auth/github/callback  (Github callback URL)
 
   *Notes endpoints*
+  
+  -All note endpoints require JWT authentication via an authorization header-
+  
+  -Get All User Notes-
+  
+   GET  /api/notes
+   
+   authorization: bearer <jwt_token>
+
+
+  -Create New Note-
+  
+  POST  /api/notes
+  
+  authorization: bearer <jwt_token>
+  
+  content-type: application/json
+  
+  {
+  
+    "title": "My Notes Today",
+    
+    "content": "Note content..."
+    
+  }
+
+
+  -Update Note-
+  
+  PUT  /api/notes/:noteId
+  
+  authorization: bearer <jwt token>
+  
+  content-type: application/json
+  
+  {
+  
+   "title": "Updated Note Title",
+   
+   "content": "Updated content here..."
+   
+   }
+
+
+   -Delete Note-
+   
+   DELETE  /api/notes/:noteId
+   
+   authorization: bearer <jwt token>
+
+
+  --------------------------------------------------------
+
+  
   
 
   
