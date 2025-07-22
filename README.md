@@ -67,12 +67,12 @@ __GitHub OAuth Setup__
   
 
 
-    
+  
 
 
 --------------------------------------------------------------------------------------------------------------
 
-__Notes API__ as mod 14 lab 2 ----
+mod 14 lab 2 -__Notes API__
 
 A secure RESTful API for managing personal notes with user authentication and authorization. Users can only access and manage their own notes.
 
