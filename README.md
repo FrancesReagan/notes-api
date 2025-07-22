@@ -64,6 +64,10 @@ __GitHub OAuth Setup__
          * application name: Notes API
          * homepasge URI/URL: http://localhost: 3000
          * callback URI/URL; http://localhost:3000/api/users/auth/github/callback
+         * copy client ID an client secret to your .env file
+
+__Start Server__
+npm run dev
   
 
 
