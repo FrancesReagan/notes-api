@@ -151,6 +151,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
    }
 
 
+
    -Delete Note-
    
    DELETE  /api/notes/:noteId
@@ -167,6 +168,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
   GET  /api/bookmarks
   authorization: bearer <jwt token>
 
+
   -Create New Bookmark-
   POST  /api/bookmarks
   authorization: bearer <jwt token>
@@ -178,6 +180,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
     "tags": ["search", "web", "google"]
 
     }
+
 
     -Update Bookmark-
     PUT  /api/bookmarks/:bookmarkId
@@ -191,13 +194,14 @@ GET  /api/users/auth/github/callback  (Github callback URL)
 
       }
 
+
     -Delete Bookmark-
     DELETE  /api/bookmarks/:bookmarkId
     Authorization: bearer <jwt token>
 
     --------------------------------------------
   
-
+-----STill updating---here read me----will update tonight 7/22/2025
   
 
 
