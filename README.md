@@ -74,7 +74,7 @@ npm run dev
 
 server runs on http://localhost:3000
 
-__API Endpoints__
+__API Endpoints__ to test
 _Authentication Endpoints_
 
 *Register New User*
@@ -160,7 +160,42 @@ GET  /api/users/auth/github/callback  (Github callback URL)
 
   --------------------------------------------------------
 
-  
+  _Bookmark Endpoints_
+  All bookmark endpoints require JWT authenication via the authorization header
+
+  -Get all User Boookmarks-
+  GET  /api/bookmarks
+  authorization: bearer <jwt token>
+
+  -Create New Bookmark-
+  POST  /api/bookmarks
+  authorization: bearer <jwt token>
+  content-type: application/json
+  {
+    "title": "Google",
+    "url": "https://www.google.com",
+    "description": "google search engine my fav",
+    "tags": ["search", "web", "google"]
+
+    }
+
+    -Update Bookmark-
+    PUT  /api/bookmarks/:bookmarkId
+    authorization: bearer <jwt token>
+    content-type: application/json
+
+    {
+      "title": "Updated Google bookmark",
+      "description": "updated description",
+      "tags": ["updated", "search", "best search engine"]
+
+      }
+
+    -Delete Bookmark-
+    DELETE  /api/bookmarks/:bookmarkId
+    Authorization: bearer <jwt token>
+
+    --------------------------------------------
   
 
   
