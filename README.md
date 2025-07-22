@@ -22,6 +22,44 @@ __new project structure:__
 
 <img width="152" height="395" alt="image" src="https://github.com/user-attachments/assets/16176ab6-06bf-4147-9cb6-52655763c21f" />
 
+-----------------------------------------------
+
+__Install and set up__
+* clone and install dependencies: git clone <repo-url>, cd note-api, npm install
+  (dev dependencies listed later)
+
+__Environment Configuration__
+
+* get the Github client Id, secret, etc from the dev settings in Github
+  
+*create an .env file in the root directory: `env`  has this in it: 
+
+  # MongoDB Connection
+  
+  `MONGO_URI=mongodb+srv://username:password@cluster0.sasklml.mongodb.net/notesapi?retryWrites=true&w=majority&appName=Cluster0
+
+   `JWT_SECRET=your_super_secret_jwt_key_here`
+
+    `GITHUB_CLIENT_ID= your_github_client_id`
+
+    `GITHUB_CLIENT_SECRET=your_github_client_secret`
+
+    `GITHUB_CALLBACK_URL=http://localhost:3000/api/users/auth/github/callback`
+
+    #Server port
+
+    PORT=3000
+    
+    -----------------------------------------------------------------------------
+
+__MongoDB Setup__
+* create a mongoDB atlas account or use local mongoDB
+* create a new database called notesapi
+* update the MONGO_URI in your .env file
+
+
+    
+
 
 --------------------------------------------------------------------------------------------------------------
 
