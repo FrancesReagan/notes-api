@@ -11,11 +11,14 @@ __Features__
 * security - password hashing, JWT tokens, and authorization middleware;
 * github integration: OAuth authentication with GitHub accounts.
 
+  __Tech Stack__
+  * backend: node.js and express.js;
+  * database: mongoDB with mongoose ODM;
+  * authentication: JWT, passport.js (Github OAuth);
+  * security: bcrypt for password hashing;
+  * environment: dotenv for dealing with environment variables
   
-
-
-
-new project structure: 
+__new project structure:__ 
 
 <img width="152" height="395" alt="image" src="https://github.com/user-attachments/assets/16176ab6-06bf-4147-9cb6-52655763c21f" />
 
