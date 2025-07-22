@@ -27,6 +27,7 @@ __new project structure:__
 
 __Install and set up__
 * clone and install dependencies: git clone <repo-url>, cd note-api, npm install
+  
   (dev dependencies listed later)
 
 __Environment Configuration__
@@ -75,17 +76,36 @@ server runs on http://localhost:3000
 
 __API Endpoints__
 _Authentication Endpoints_
+
 *Register New User*
 
 POST   /appi/users/register
 content-type: application/json 
 
 {
+
  "username": "usertestname",
+ 
  "email": "usertestname@gmail.com",
+ 
  "password": "password123"
+ 
  }
 
+*Login User*
+POST  /api/users/login
+content-type:application/json
+{
+  "email": "user@example.com",
+  "password":"password123"
+}
+
+*GitHub OAuth (browser-based)*
+GET  /api/users/auth/github   (redirects to Github)
+GET  /api/users/auth/github/callback  (Github callback URL)
+
+  *Notes endpoints*
+  
 
   
 
