@@ -244,9 +244,13 @@ The API includes:
 * 201 - created (POST)
 * 400 - bad request (validation errors)
 * 401 - unauthorized (authentication required)
-* 403 - forbidden (not authorized for this resource)
+* 403 - forbidden (not authorized for this resource) 
 * 404 - resource not found
 * 500 - internal server error
+
+______________________________________________________________
+
+References: 
 
 
 
