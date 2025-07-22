@@ -34,7 +34,7 @@ __Environment Configuration__
   
 *create an .env file in the root directory: `env`  has this in it: 
 
-  # MongoDB Connection
+  //MongoDB Connection//
   
   `MONGO_URI=mongodb+srv://username:password@cluster0.sasklml.mongodb.net/notesapi?retryWrites=true&w=majority&appName=Cluster0
 
@@ -56,6 +56,15 @@ __MongoDB Setup__
 * create a mongoDB atlas account or use local mongoDB
 * create a new database called notesapi
 * update the MONGO_URI in your .env file
+
+
+__GitHub OAuth Setup__
+* go to Github settings -> developer settings -> OAuth Apps
+* create a new OAuth app with:
+         * application name: Notes API
+         * homepasge URI/URL: http://localhost: 3000
+         * callback URI/URL; http://localhost:3000/api/users/auth/github/callback
+  
 
 
     
