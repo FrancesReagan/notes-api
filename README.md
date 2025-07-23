@@ -79,11 +79,13 @@ npm run dev
 server runs on http://localhost:3000
 
 __API Endpoints__ to test
+
 _Authentication Endpoints_
 
 *Register New User*
 
 POST   /appi/users/register
+
 content-type: application/json 
 
 {
@@ -97,12 +99,17 @@ content-type: application/json
  }
 
 *Login User*
+
 POST  /api/users/login
+
 content-type:application/json
+
 {
   "email": "user@example.com",
+  
   "password":"password123"
 }
+
 
 *GitHub OAuth (browser-based)*
 
@@ -110,7 +117,7 @@ GET  /api/users/auth/github   (redirects to Github)
 
 GET  /api/users/auth/github/callback  (Github callback URL)
 
-  *Notes endpoints*
+  __*Notes endpoints*__
   
   -All note endpoints require JWT authentication via an authorization header-
   
@@ -146,6 +153,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
   
   content-type: application/json
   
+  
   {
   
    "title": "Updated Note Title",
@@ -170,19 +178,29 @@ GET  /api/users/auth/github/callback  (Github callback URL)
 
   -Get all User Boookmarks-
   (in postman--- new HTTP request)
+  
   GET  /api/bookmarks
+  
   authorization: bearer <jwt token>
 
 
   -Create New Bookmark-
    (in postman--- new HTTP request)
+   
   POST  /api/bookmarks
+  
   authorization: bearer <jwt token>
+  
   content-type: application/json
+  
   {
+  
     "title": "Google",
+    
     "url": "https://www.google.com",
+    
     "description": "google search engine my fav",
+    
     "tags": ["search", "web", "google"]
 
     }
@@ -190,13 +208,19 @@ GET  /api/users/auth/github/callback  (Github callback URL)
 
     -Update Bookmark-
      (in postman--- new HTTP request)
+     
     PUT  /api/bookmarks/:bookmarkId
+    
     authorization: bearer <jwt token>
+    
     content-type: application/json
 
     {
+    
       "title": "Updated Google bookmark",
+      
       "description": "updated description",
+      
       "tags": ["updated", "search", "best search engine"]
 
       }
@@ -204,7 +228,9 @@ GET  /api/users/auth/github/callback  (Github callback URL)
 
     -Delete Bookmark-
      (in postman--- new HTTP request)
+     
     DELETE  /api/bookmarks/:bookmarkId
+    
     Authorization: bearer <jwt token>
 
     --------------------------------------------
