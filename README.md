@@ -44,12 +44,16 @@ __Environment Configuration__
 
 * get the Github client Id, secret, etc from the dev settings in Github
   
-*create an .env file in the root directory: `env`  has this in it: 
+* create an .env file in the root directory: `env`  has this in it: 
 
 MONGO_URI=your_mongodb_connection_string
+
 JWT_SECRET=your_jwt_secret
+
 GITHUB_CLIENT_ID=your_github_client_id
+
 GITHUB_CLIENT_SECRET=your_github_client_secret
+
 GITHUB_CALLBACK_URL=http://localhost:3000/api/users/auth/github/callback
     
     -----------------------------------------------------------------------------
@@ -165,11 +169,13 @@ GET  /api/users/auth/github/callback  (Github callback URL)
   All bookmark endpoints require JWT authenication via the authorization header
 
   -Get all User Boookmarks-
+  (in postman--- new HTTP request)
   GET  /api/bookmarks
   authorization: bearer <jwt token>
 
 
   -Create New Bookmark-
+   (in postman--- new HTTP request)
   POST  /api/bookmarks
   authorization: bearer <jwt token>
   content-type: application/json
@@ -183,6 +189,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
 
 
     -Update Bookmark-
+     (in postman--- new HTTP request)
     PUT  /api/bookmarks/:bookmarkId
     authorization: bearer <jwt token>
     content-type: application/json
@@ -196,6 +203,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
 
 
     -Delete Bookmark-
+     (in postman--- new HTTP request)
     DELETE  /api/bookmarks/:bookmarkId
     Authorization: bearer <jwt token>
 
@@ -252,7 +260,56 @@ GET  /api/users/auth/github/callback  (Github callback URL)
 
     -------------------------------------------------------------------------
     
+  _Testing with Postman_
+  * authentication flow
+    - register user or Login user to get JWT token
+    - copy the token from the successful response.
+    - add authorization header to all requests after: authorization: Bearer <token>.
 
+  * testing notes
+    - create notes with POST /api/notes
+    - retrieve all  notes with GET /api/notes
+    - update specific note with PUT /api/notes/:id
+    - delete note with DELETE /api/notes/:id
+
+  * testing bookmarks
+    - create bookmarks with POST  /api/bookmarks
+    - retrieve all bookmarks with GET /api/bookmarks
+    - update specific bookmark with PUT /api/bookmarks/:id
+    - delete bookmark with DELETE /api/bookmarks/:id
+
+  * security testing
+    - test accessing endpoints without the Authorization header ( this is supposed to return 401)
+    - test accessing another user's resources (this is supposed to return 403)
+    - test with invalid/expired tokens (this is supposed to return 401)
+   
+_Sample data for testing_
+*Sample Note
+{
+
+ "title": "Life is Good",
+ 
+ "content": "Life is good if you are in the present moment"
+
+ }
+
+
+ *Sample bookmark
+ 
+ {
+ 
+  "title": "How to Write",
+  
+  "url": "[https](https://www.wikihow.com/Write),
+  
+  "description": "learn how to write--more then a hobby",
+  
+  "tags": ["learn", "write", "wikihow", "self-help"]
+  
+  }
+
+
+  
     
    
 
