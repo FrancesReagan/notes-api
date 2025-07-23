@@ -1,8 +1,14 @@
 mod14 SBA
 __Notes and Bookmarks API__ 
+
 Adding to the Notes-API project:) 
-This is a secure RESTful API for managing personal notes and bookmarks with user authentication. It is built with node.js, express, mongodb, and JWT authenication.  
+
+This is a secure RESTful API for managing personal notes and bookmarks with user authentication.
+
+It is built with node.js, express, mongodb, and JWT authenication.  
+
 This API features standard email/password authentication and GitHub OAuth integration.
+
 
 __Features__
 * User authentication - JWT based authentication with email/password registration and GitHub OAuth;
