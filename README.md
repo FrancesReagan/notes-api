@@ -200,6 +200,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
     Authorization: bearer <jwt token>
 
     --------------------------------------------
+    
   __Data Models__
   _User Model_
   {
@@ -227,6 +228,17 @@ GET  /api/users/auth/github/callback  (Github callback URL)
       createdAt: Date.now,
       user: ObjectId(reference to User,required)
     }
+
+    --------------------------------------------------
+
+    __Authentication & Security__
+
+    _JWT Token Authentication_
+    
+    * all protected routes require a valid JWT token.
+    * token must be included in the Authorization header as a Bearer <token>.
+    * tokens expire after 2 hrs.
+    * users can only access their own resources
 
     
    
