@@ -326,13 +326,42 @@ _Sample data for testing_
  
   "title": "How to Write",
   
-  "url": "[https](https://www.wikihow.com/Write),
+  "url": "[wikihow - Write ](https://www.wikihow.com/Write),
   
   "description": "learn how to write--more then a hobby",
   
   "tags": ["learn", "write", "wikihow", "self-help"]
   
   }
+
+-------------------------------------------------------------
+
+__Error Handling__
+_Common HTTP Status Codes_
+* 200 - Success
+* 201 - created ...successful POST requests
+* 400 - bad request --validation errors and or missing fields.
+* 401 - unauthorized --missing/invalid token.
+* 403 - forbidden -- accessing another user's resources.
+* 404 - not found-- resource does  not exist.
+* 500 - internal server error
+
+_Example error responses_
+* 401 - unauthorized
+   {
+     "message": "User must be logged on to do this."
+  }
+
+*403 - forbidden 
+{
+  "message": "user is not authorized to update this note."
+
+}
+
+*404 not found
+{
+  "message": "no note found by this id"
+}
 
 
   
