@@ -28,7 +28,7 @@ __new project structure:__
 __Install and set up__
 * clone and install dependencies: git clone <repo-url>, cd note-api, npm install
   
-  (dev dependencies listed later)
+  dev dependencies to install
 
 __Environment Configuration__
 
@@ -200,8 +200,37 @@ GET  /api/users/auth/github/callback  (Github callback URL)
     Authorization: bearer <jwt token>
 
     --------------------------------------------
-  
------STill updating---here read me----will update tonight 7/22/2025
+  __Data Models__
+  _User Model_
+  {
+   username: String (required, unique),
+   email: String (required, unique, validated),
+   password: String (hashed, required if no githubId),
+   githubId: String (unique, for OAuth users),
+   createdAt: Date.now
+   }
+
+   _Note Model_
+   {
+    title: String (required),
+    content: String (required),
+    createdAt: Date.now,
+    user: ObjectId (reference to User, required)
+    }
+
+    _Bookmark Model_
+    {
+      title: String (required),
+      url: String (required),
+      description: String (optional),
+      tags:[String] (array of tags),
+      createdAt: Date.now,
+      user: ObjectId(reference to User,required)
+    }
+
+    
+   
+
   
 
 
