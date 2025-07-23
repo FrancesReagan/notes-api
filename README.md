@@ -1,4 +1,407 @@
-__Notes API__ 
+mod14 SBA
+__Notes and Bookmarks API__ 
+
+Adding to the Notes-API project:) 
+
+This is a secure RESTful API for managing personal notes and bookmarks with user authentication.
+
+It is built with node.js, express, mongodb, and JWT authenication.  
+
+This API features standard email/password authentication and GitHub OAuth integration.
+
+----------------------------------------------------------------------
+
+__Features__
+* User authentication - JWT based authentication with email/password registration and GitHub OAuth;
+* Notes Management - create, read, update, and delete personal notes;
+* bookmarks managment - save and organize web bookmarkes with tags;
+* user specific access - users can only access their own notes and bookmarks;
+* security - password hashing, JWT tokens, and authorization middleware;
+* github integration: OAuth authentication with GitHub accounts.
+
+  __Tech Stack__
+  * backend: node.js and express.js;
+  * database: mongoDB with mongoose ODM;
+  * authentication: JWT, passport.js (Github OAuth);
+  * security: bcrypt for password hashing;
+  * environment: dotenv for dealing with environment variables
+  
+__new project structure:__ 
+
+<img width="152" height="395" alt="image" src="https://github.com/user-attachments/assets/16176ab6-06bf-4147-9cb6-52655763c21f" />
+
+-----------------------------------------------
+
+__Install and set up__
+* clone and install dependencies: `git clone <repo-url>`, `cd note-api`, `npm install`
+  
+  dev dependencies to install:
+  * `npm install express mongoose dotenv cors bcryptjs jsonwebtoken passport passport-github2`
+  * `npm install --save-dev nodemon`
+
+
+__Environment Configuration__
+
+* get the Github client Id, secret, etc from the dev settings in Github
+  
+* create an .env file in the root directory: `env`  has this in it: 
+
+MONGO_URI=your_mongodb_connection_string
+
+JWT_SECRET=your_jwt_secret
+
+GITHUB_CLIENT_ID=your_github_client_id
+
+GITHUB_CLIENT_SECRET=your_github_client_secret
+
+GITHUB_CALLBACK_URL=http://localhost:3000/api/users/auth/github/callback
+    
+    -----------------------------------------------------------------------------
+
+__MongoDB Setup__
+* create a mongoDB atlas account or use local mongoDB
+* create a new database called notesapi
+* update the MONGO_URI in your .env file
+
+
+__GitHub OAuth Setup__
+* go to Github settings -> developer settings -> OAuth Apps
+* create a new OAuth app with:
+         * application name: Notes API
+         * homepasge URI/URL: http://localhost: 3000
+         * callback URI/URL; http://localhost:3000/api/users/auth/github/callback
+         * copy client ID an client secret to your .env file
+
+__Start Server__
+
+npm run dev
+
+server runs on http://localhost:3000
+
+__API Endpoints__ to test
+
+_Authentication Endpoints_
+
+*Register New User*
+
+POST   /appi/users/register
+
+content-type: application/json 
+
+{
+
+ "username": "usertestname",
+ 
+ "email": "usertestname@gmail.com",
+ 
+ "password": "password123"
+ 
+ }
+
+*Login User*
+
+POST  /api/users/login
+
+content-type:application/json
+
+{
+  "email": "user@example.com",
+  
+  "password":"password123"
+}
+
+
+*GitHub OAuth (browser-based)*
+
+GET  /api/users/auth/github   (redirects to Github)
+
+GET  /api/users/auth/github/callback  (Github callback URL)
+
+  __*Notes endpoints*__
+  
+  -All note endpoints require JWT authentication via an authorization header-
+  
+  -Get All User Notes-
+  
+   GET  /api/notes
+   
+   authorization: bearer <jwt_token>
+
+
+  -Create New Note-
+  
+  POST  /api/notes
+  
+  authorization: bearer <jwt_token>
+  
+  content-type: application/json
+  
+  {
+  
+    "title": "My Notes Today",
+    
+    "content": "Note content..."
+    
+  }
+
+
+  -Update Note-
+  
+  PUT  /api/notes/:noteId
+  
+  authorization: bearer <jwt token>
+  
+  content-type: application/json
+  
+  
+  {
+  
+   "title": "Updated Note Title",
+   
+   "content": "Updated content here..."
+   
+   }
+
+
+
+   -Delete Note-
+   
+   DELETE  /api/notes/:noteId
+   
+   authorization: bearer <jwt token>
+
+
+  --------------------------------------------------------
+
+  _Bookmark Endpoints_
+  All bookmark endpoints require JWT authenication via the authorization header
+
+  -Get all User Boookmarks-
+  (in postman--- new HTTP request)
+  
+  GET  /api/bookmarks
+  
+  authorization: bearer <jwt token>
+
+
+  -Create New Bookmark-
+   (in postman--- new HTTP request)
+   
+  POST  /api/bookmarks
+  
+  authorization: bearer <jwt token>
+  
+  content-type: application/json
+  
+  {
+  
+    "title": "Google",
+    
+    "url": "https://www.google.com",
+    
+    "description": "google search engine my fav",
+    
+    "tags": ["search", "web", "google"]
+
+    }
+
+
+    -Update Bookmark-
+     (in postman--- new HTTP request)
+     
+    PUT  /api/bookmarks/:bookmarkId
+    
+    authorization: bearer <jwt token>
+    
+    content-type: application/json
+
+    {
+    
+      "title": "Updated Google bookmark",
+      
+      "description": "updated description",
+      
+      "tags": ["updated", "search", "best search engine"]
+
+      }
+
+
+    -Delete Bookmark-
+     (in postman--- new HTTP request)
+     
+    DELETE  /api/bookmarks/:bookmarkId
+    
+    Authorization: bearer <jwt token>
+
+    --------------------------------------------
+    
+  __Data Models__
+  _User Model_
+  {
+   username: String (required, unique),
+   email: String (required, unique, validated),
+   password: String (hashed, required if no githubId),
+   githubId: String (unique, for OAuth users),
+   createdAt: Date.now
+   }
+
+   _Note Model_
+   {
+    title: String (required),
+    content: String (required),
+    createdAt: Date.now,
+    user: ObjectId (reference to User, required)
+    }
+
+    _Bookmark Model_
+    {
+      title: String (required),
+      url: String (required),
+      description: String (optional),
+      tags:[String] (array of tags),
+      createdAt: Date.now,
+      user: ObjectId(reference to User,required)
+    }
+
+    --------------------------------------------------
+
+    __Authentication & Security__
+
+    _JWT Token Authentication_
+    
+    * all protected routes require a valid JWT token.
+    * token must be included in the Authorization header as a Bearer <token>.
+    * tokens expire after 2 hrs.
+    * users can only access their own resources
+
+    _Password Security_
+    * passwords are hashed using bcrypt with 10 salt rounds
+    * min passwords length: 5 characters.
+    * password validation occurs on user registration and login
+
+    _Authorization_
+    * users can only view, edit, and delete their own notes and bookmarks
+    * all routes check the resource ownership before allowing any operations.
+    * returns a `403 Forbidden` for unauthorized access attempts.
+
+    -------------------------------------------------------------------------
+    
+  _Testing with Postman_
+  * authentication flow
+    - register user or Login user to get JWT token
+    - copy the token from the successful response.
+    - add authorization header to all requests after: authorization: Bearer <token>.
+
+  * testing notes
+    - create notes with POST /api/notes
+    - retrieve all  notes with GET /api/notes
+    - update specific note with PUT /api/notes/:id
+    - delete note with DELETE /api/notes/:id
+
+  * testing bookmarks
+    - create bookmarks with POST  /api/bookmarks
+    - retrieve all bookmarks with GET /api/bookmarks
+    - update specific bookmark with PUT /api/bookmarks/:id
+    - delete bookmark with DELETE /api/bookmarks/:id
+
+  * security testing
+    - test accessing endpoints without the Authorization header ( this is supposed to return 401)
+    - test accessing another user's resources (this is supposed to return 403)
+    - test with invalid/expired tokens (this is supposed to return 401)
+   
+_Sample data for testing_
+*Sample Note
+{
+
+ "title": "Life is Good",
+ 
+ "content": "Life is good if you are in the present moment"
+
+ }
+
+
+ *Sample bookmark
+ 
+ {
+ 
+  "title": "How to Write",
+  
+  "url": "[wikihow - Write ](https://www.wikihow.com/Write),
+  
+  "description": "learn how to write--more then a hobby",
+  
+  "tags": ["learn", "write", "wikihow", "self-help"]
+  
+  }
+
+-------------------------------------------------------------
+
+__Error Handling__
+_Common HTTP Status Codes_
+* 200 - Success
+* 201 - created ...successful POST requests
+* 400 - bad request --validation errors and or missing fields.
+* 401 - unauthorized --missing/invalid token.
+* 403 - forbidden -- accessing another user's resources.
+* 404 - not found-- resource does  not exist.
+* 500 - internal server error
+
+_Example error responses_
+* 401 - unauthorized
+   {
+     "message": "User must be logged on to do this."
+  }
+
+*403 - forbidden 
+{
+  "message": "user is not authorized to update this note."
+
+}
+
+*404 not found
+{
+  "message": "no note found by this id"
+}
+
+
+  ------------------------------------------------------------------------------
+
+  __Development Scripts__
+  `npm run dev` -- starts the development server with nodemon
+
+  _Dependencies_
+  *Production dependencies
+  - Express: web framework
+  - Mongoose: MongoDB ODM
+  - bcrypt: Password hashing and salting
+  - jsonwebtoken: JWT token handling
+  - passport: Authentication middleware
+  - passport-github2: github OAuth technique
+  - dotenv: environment variable management
+
+  *Development Dependencies
+  - nodemon: development server with automatic reload
+
+----------------------------------------------------------------------------------------
+
+__Security Practices Implemented__
+
+* password hashing: all passwords aer hashed using bcrypt
+* JWT tokens: stateless authenication with timed expiration
+* input validation: mongoose schema validation.
+* authorization checks: ownership verification of resources.
+* environment variables: secret or sensitive data stored in .env file
+* CORS considerations: configured for API use
+    
+   
+
+  
+
+
+--------------------------------------------------------------------------------------------------------------
+
+mod 14 lab 2 -
+__Notes API__
 
 A secure RESTful API for managing personal notes with user authentication and authorization. Users can only access and manage their own notes.
 
@@ -244,9 +647,14 @@ The API includes:
 * 201 - created (POST)
 * 400 - bad request (validation errors)
 * 401 - unauthorized (authentication required)
-* 403 - forbidden (not authorized for this resource)
+* 403 - forbidden (not authorized for this resource) 
 * 404 - resource not found
 * 500 - internal server error
+
+______________________________________________________________
+
+
+
 
 
 
