@@ -364,7 +364,34 @@ _Example error responses_
 }
 
 
-  
+  ------------------------------------------------------------------------------
+
+  __Development Scripts__
+  `npm run dev` -- starts the development server with nodemon
+
+  _Dependencies_
+  *Production dependencies
+  - Express: web framework
+  - Mongoose: MongoDB ODM
+  - bcrypt: Password hashing and salting
+  - jsonwebtoken: JWT token handling
+  - passport: Authentication middleware
+  - passport-github2: github OAuth technique
+  - dotenv: environment variable management
+
+  *Development Dependencies
+  - nodemon: development server with automatic reload
+
+----------------------------------------------------------------------------------------
+
+__Security Practices Implemented__
+
+* password hashing: all passwords aer hashed using bcrypt
+* JWT tokens: stateless authenication with timed expiration
+* input validation: mongoose schema validation.
+* authorization checks: ownership verification of resources.
+* environment variables: secret or sensitive data stored in .env file
+* CORS considerations: configured for API use
     
    
 
