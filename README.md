@@ -5,7 +5,7 @@ Adding to the Notes-API project:)
 
 This is a secure RESTful API for managing personal notes and bookmarks with user authentication.
 
-It is built with node.js, express, mongodb, and JWT authenication.  
+It is built with node.js, express, mongodb, and JWT authenication.   
 
 This API features standard email/password authentication and GitHub OAuth integration.
 
