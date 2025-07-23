@@ -20,7 +20,7 @@ user: {
   ref: "User",
   required: true,
 },
-
+// notebook: 
 });
 
 const Note = mongoose.model("Note", noteSchema);
