@@ -9,6 +9,7 @@ It is built with node.js, express, mongodb, and JWT authenication.
 
 This API features standard email/password authentication and GitHub OAuth integration.
 
+----------------------------------------------------------------------
 
 __Features__
 * User authentication - JWT based authentication with email/password registration and GitHub OAuth;
@@ -32,9 +33,12 @@ __new project structure:__
 -----------------------------------------------
 
 __Install and set up__
-* clone and install dependencies: git clone <repo-url>, cd note-api, npm install
+* clone and install dependencies: `git clone <repo-url>`, `cd note-api`, `npm install`
   
-  dev dependencies to install
+  dev dependencies to install:
+  * `npm install express mongoose dotenv cors bcryptjs jsonwebtoken passport passport-github2`
+  * `npm install --save-dev nodemon`
+
 
 __Environment Configuration__
 
@@ -42,21 +46,11 @@ __Environment Configuration__
   
 *create an .env file in the root directory: `env`  has this in it: 
 
-  //MongoDB Connection//
-  
-  `MONGO_URI=mongodb+srv://username:password@cluster0.sasklml.mongodb.net/notesapi?retryWrites=true&w=majority&appName=Cluster0
-
-   `JWT_SECRET=your_super_secret_jwt_key_here`
-
-    `GITHUB_CLIENT_ID= your_github_client_id`
-
-    `GITHUB_CLIENT_SECRET=your_github_client_secret`
-
-    `GITHUB_CALLBACK_URL=http://localhost:3000/api/users/auth/github/callback`
-
-    #Server port
-
-    PORT=3000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+GITHUB_CLIENT_ID=your_github_client_id
+GITHUB_CLIENT_SECRET=your_github_client_secret
+GITHUB_CALLBACK_URL=http://localhost:3000/api/users/auth/github/callback
     
     -----------------------------------------------------------------------------
 
@@ -245,6 +239,19 @@ GET  /api/users/auth/github/callback  (Github callback URL)
     * token must be included in the Authorization header as a Bearer <token>.
     * tokens expire after 2 hrs.
     * users can only access their own resources
+
+    _Password Security_
+    * passwords are hashed using bcrypt with 10 salt rounds
+    * min passwords length: 5 characters.
+    * password validation occurs on user registration and login
+
+    _Authorization_
+    * users can only view, edit, and delete their own notes and bookmarks
+    * all routes check the resource ownership before allowing any operations.
+    * returns a `403 Forbidden` for unauthorized access attempts.
+
+    -------------------------------------------------------------------------
+    
 
     
    
