@@ -13,26 +13,26 @@ passport.use(
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
       callbackURL: process.env.GITHUB_CALLBACK_URL,
     },
-    // This is the "verify" callback
+    // "verify" callback//
     async (accessToken, refreshToken, profile, done) => {
       try {
-        // The "profile" object contains the user's GitHub information
+        // The "profile" object contains the user's GitHub information //
         const existingUser = await User.findOne({ githubId: profile.id });
 
         if (existingUser) {
-          // If user already exists, pass them to the next middleware
+          // If user already exists, pass next middleware //
           return done(null, existingUser);
         }
 
         console.log("PROFILE: ",profile);
         
-        // If it's a new user, create a record in our database
+        // If it's a new user, create a record in our database //
         const newUser = new User({
           githubId: profile.id,
           username: profile.username,
-          // Some providers return an array of emails
+          // Some providers return an array of emails //
           email: profile.email ? profile.email : 'test@test.com', 
-        //   email: profile.email ? profile.email : profile.emails[0]?.value, 
+        //   email: profile.email ? profile.email : profile.emails[0]?.value, //
         });
 
         await newUser.save();
@@ -46,12 +46,12 @@ passport.use(
 
 // I am already using JSON data--so the below is not needed but will be needed if using database that needs to make
 // data into JSON data//
-// Parses the user obj and store the user id
+// Parses the user obj and store the user id //
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
 
-// Finds the user based on the id
+// Finds the user based on the id //
 passport.deserializeUser(async (id, done) => {
   try {
     const user = await User.findById(id);
