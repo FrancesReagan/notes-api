@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";  
-// this is the model you will be modifying//
+
 const noteSchema = new Schema({
   title: {
   type: String,

@@ -37,6 +37,6 @@ user: {
 
 });
 
-const Bookmark = mongoose.model("Bookmark", BookmarkSchema);
+const Bookmark = mongoose.model("Bookmark", bookmarkSchema);
 
 export default Bookmark;
