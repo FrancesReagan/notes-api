@@ -1,11 +1,22 @@
 import jwt from "jsonwebtoken";
+
+// secret key to sign tokens//
 const secret = process.env.JWT_SECRET;
+
+// token expires after 2hrs//
 const expiration = "2h";
 
+
+// middleware----this one is the guardian at the gate---authorization checks//
 export function authMiddleware(req, res, next) {
+
+  // look for a token in three places--in the request body, query parameters, and or the headers//
   let token = req.body?.token || req.query?.token || req.headers.authorization;
 
+// if the token is in the headers, it appears like "Bearer si8ehahioeojo3256jiojwofjoewef..etc"//
+// just need to extract the token number letter part from "Bearer and the empty space after Bearer"
   if (req.headers.authorization) {
+    // remove "Bearer and the empty space after it--just want the token part//
     token = token.split(" ").pop().trim();
   }
 
