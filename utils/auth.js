@@ -20,6 +20,7 @@ export function authMiddleware(req, res, next) {
     token = token.split(" ").pop().trim();
   }
 
+  // no token---no entry//
   if (!token) {
     return res
     .status(401)
@@ -27,19 +28,28 @@ export function authMiddleware(req, res, next) {
   }
 
   try {
+    // verify the token is real and not expired//
     const { data } = jwt.verify(token, secret, { maxAge: expiration });
+
+    // if token is valid, attach user info to the request//
     req.user = data; 
+
   } catch {
+    // token is fake or expired//
     console.log("Invalid token");
     return res.status(401).json({ message: "Invalid token." }); 
   }
-
+// next means all worked well and can go to the next function//
   next();
 
 }
 
+// this function makes or creates the tokens//
 export function signToken({ username, email, _id }) {
+
+  // put user info in the token//
   const payload = { username, email, _id };
 
+  // create and return the signed token---it is not unable to be faked//
   return jwt.sign({ data: payload }, secret, { expiresIn: expiration});
 }
