@@ -35,24 +35,24 @@ router.post("/register", async (req, res)=> {
   });
 
 // Route to start the OAuth flow
-// When a user visits this URL, they will be redirected to GitHub to log in.
+// if a user visits this URL...they will be redirected to GitHub to log in.//
 router.get(
   '/auth/github',
-  passport.authenticate('github', { scope: ['user:email'] }) // Request email scope
+  passport.authenticate('github', { scope: ['user:email'] }) 
 );
  
-// Github interacts with this route --the callback route that GitHub will redirect to after the user approves.
+// GitHub interacts with this route --the callback route that GitHub will redirect to after the user approves.//
 router.get(
   '/auth/github/callback',
   passport.authenticate('github', {
-    failureRedirect: '/login', // Where to redirect if user denies
-    session: false // We are using tokens, not sessions
+    failureRedirect: '/login', 
+    session: false 
   }),
   (req, res) => {
-    // At this point, `req.user` is the user profile returned from the verify callback.
-    // We can now issue our own JWT to the user.
+    //  `req.user` is the user profile returned from the verify callback.//
+    // now issue JWT to the user.//
     const token = signToken(req.user);
-    // Redirect the user to the frontend with the token, or send it in the response
+    // redirect the user to the frontend with the token, or send it in the response//
     // res.redirect(`http://localhost:3000?token=${token}`);
     res.json({ token, user: req.user });
   }
