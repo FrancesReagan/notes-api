@@ -194,7 +194,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
   
   -All note endpoints require JWT authentication via an authorization header-
 
-   -Create New Note Endpoint Test-
+   _Create New Note Endpoint Test_
    
   *in Postman--new HTTP request---select "POST" for new post request---then put in the endpoint desired to create a new note:
   
@@ -217,6 +217,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
 
 
  -Click "Send"---then look in the body --"Raw" to see status if created successfully "201 Created" and the title and content now associated with the user and user's id"
+<img width="1280" height="764" alt="image (7)" src="https://github.com/user-attachments/assets/15993296-59b5-4cb4-93b1-4201e89e8885" />
 
 
   ----------------------------------------------------------------
