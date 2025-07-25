@@ -152,7 +152,7 @@ _*Login User* endpoint test_
 
 GET  /api/users/auth/github   (redirects to Github)
 
--open browser --- paste http://localhost:3000/api/users/auth/github
+-open browser --- paste `http://localhost:3000/api/users/auth/github`
 
 -redirects to GitHub login
 
@@ -163,18 +163,27 @@ GET  /api/users/auth/github   (redirects to Github)
 -GitHub sends you back to your callback URL
 
 GET  /api/users/auth/github/callback  (Github callback URL)
-http://localhost:3000/api/users/auth/github/callback?code=XXXXXXXXXXXXXX
+
+`http://localhost:3000/api/users/auth/github/callback?code=XXXXXXXXXXXXXX`
 
 -Your server creates a JWT token and returns it
-{
+
+`{
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...[truncated]",
+  
   "user": {
+  
     "_id": "507f1f77bcf86cd799439011",
+    
     "username": "testuser",
+    
     "email": "test@example.com",
+    
     "githubId": "12345678"
+    
   }
-}
+  
+}`
 
 
 
