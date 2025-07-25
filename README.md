@@ -195,20 +195,20 @@ GET  /api/users/auth/github/callback  (Github callback URL)
   content-type: application/json
   *click on the "Body" option---then click "raw" button---drop down select JSON--then in the body field type:
   
-  {
   
-    "title": "Google",
+  
+   { "title": "Google",
     
     "url": "https://www.google.com",
     
     "description": "Search engine",
 
     }
-    
+    ----------------------------------------------------------------------------------------------
     <img width="1280" height="764" alt="image" src="https://github.com/user-attachments/assets/63498622-71b1-45b9-8fbe-a6bd6fe7e1d4" />
 
     ----this will return the newly created bookmark information---
-
+--------------------------------------------------------------------------------------------
     *add a few book marks with same user
     *add a few book marks for another user
 
