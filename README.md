@@ -163,10 +163,18 @@ GET  /api/users/auth/github   (redirects to Github)
 -GitHub sends you back to your callback URL
 
 GET  /api/users/auth/github/callback  (Github callback URL)
-<img width="1280" height="203" alt="image" src="https://github.com/user-attachments/assets/f15a49ba-b08c-42ed-97ae-beb371d151d4" />
+http://localhost:3000/api/users/auth/github/callback?code=XXXXXXXXXXXXXX
 
 -Your server creates a JWT token and returns it
-
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...[truncated]",
+  "user": {
+    "_id": "507f1f77bcf86cd799439011",
+    "username": "testuser",
+    "email": "test@example.com",
+    "githubId": "12345678"
+  }
+}
 
 
 
