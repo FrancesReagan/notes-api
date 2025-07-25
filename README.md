@@ -269,11 +269,11 @@ GET  /api/users/auth/github/callback  (Github callback URL)
 
     {
     
-      "title": "Updated Google bookmark",
+      "title": "Cat-World Site Favs",
       
-      "description": "updated description",
+      "description": "Cat-World website favorites toys",
       
-      "tags": ["updated", "search", "best search engine"]
+      "tags": ["updated", "catlover", "best cat site ever"]
 
       }
 
