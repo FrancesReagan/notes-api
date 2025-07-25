@@ -433,8 +433,26 @@ __Security Practices Implemented__
 * authorization checks: ownership verification of resources.
 * environment variables: secret or sensitive data stored in .env file
 * CORS considerations: configured for API use
-    
-   
+------------------------------------------------------------------------------------    
+__References:__
+* Backend Framework: Express.js - Web framework for Node.js [Express Documentation](https://expressjs.com/)
+ 
+* Database: MongoDB - NoSQL document database [MongoDB Documentation](https://docs.mongodb.com/), -MongoDB object modeling for Node.js - [Mongoose Documentation](https://mongoosejs.com/docs/)
+
+* Authentication & Security:
+  -bcrypt - password hashing library  [bcrypt npm package](https://www.npmjs.com/package/bcrypt)
+  -jsonwebtoken - JWT implementation for Node.js   [JWT Documentation](https://jwt.io/)
+  -passport - authentication [Passport Documentation](http://www.passportjs.org/)
+  -passport-github2 - GitHub OAuth 2.0 strategy [passport-github2 npm](https://www.npmjs.com/package/passport-github2)
+
+*Middleware & Configuration:
+  -cors - cross-origin resource sharing middleware [CORS Documentation](https://www.npmjs.com/package/cors)
+  -dotenv - environment variable management [dotenv Documentation](https://www.npmjs.com/package/dotenv)
+
+*Development Tools
+           
+ 
+  
 
   
 
