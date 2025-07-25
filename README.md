@@ -141,10 +141,30 @@ _*Login User* endpoint test_
 
 
 *GitHub OAuth (browser-based)*
+*OAuth is meant for testing the "login with Github" buttons--not direct API testing--
+
+--To Test GitHub OAuth Flow: 
+
 
 GET  /api/users/auth/github   (redirects to Github)
 
+-open browser --- paste http://localhost:3000/api/users/auth/github
+
+-redirects to GitHub login
+
+-login with your Github account
+
+-you have authorized the app
+
+-GitHub sends you back to your callback URL
+
 GET  /api/users/auth/github/callback  (Github callback URL)
+<img width="1280" height="203" alt="image" src="https://github.com/user-attachments/assets/f15a49ba-b08c-42ed-97ae-beb371d151d4" />
+
+-Your server creates a JWT token and returns it
+
+
+
 
 
 
