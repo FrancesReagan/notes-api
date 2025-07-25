@@ -118,7 +118,7 @@ content-type: application/json
 
 
 ---------------------------------------------------------------------
-
+{In postman--new HTTP REQUEST}
 _*Login User* endpoint test_
 
 POST  /api/users/login
@@ -151,7 +151,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
   
   -All note endpoints require JWT authentication via an authorization header-
 
-   -Create New Note Endpoint-
+   -Create New Note Endpoint Test-
    
   *in Postman--new HTTP request---select "POST" for new post request---then put in the endpoint desired to create a new note:
   
@@ -179,15 +179,15 @@ GET  /api/users/auth/github/callback  (Github callback URL)
   ----------------------------------------------------------------
 
   
-  -Get All User Notes Endpoint-
+  -Get All User Notes Endpoint Test-
   
    *GET  /api/notes
    
    *authorization: bearer <jwt_token>
 
+-------------------------------------------------------------------------------------
 
-
-  -Update Note-
+  -Update Note Endpoint Test-
   
   *PUT  /api/notes/:noteId
   -http://localhost:3000/api/notes/6883b069e1baaa193a65d2f2
@@ -204,10 +204,10 @@ GET  /api/users/auth/github/callback  (Github callback URL)
    
    }
 
+----------------------------------------------------------------------
 
 
-
-   -Delete Note-
+   -Delete Note Endpoint Test-
    
    DELETE  /api/notes/:noteId
    http://localhost:3000/api/notes/6883b069e1baaa193a65d2f2
