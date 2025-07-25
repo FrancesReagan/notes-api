@@ -177,17 +177,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
 
 
   ----------------------------------------------------------------
-
-  
-  -Get All User Notes Endpoint Test-
-  
-   *GET  /api/notes
-   
-   *authorization: bearer <jwt_token>
-
--------------------------------------------------------------------------------------
-
-  -Update Note Endpoint Test-
+ -Update Note Endpoint Test-
   
   *PUT  /api/notes/:noteId
   -http://localhost:3000/api/notes/6883b069e1baaa193a65d2f2
@@ -203,6 +193,16 @@ GET  /api/users/auth/github/callback  (Github callback URL)
    "content": "Nevermind the woods are full of stray dogs"
    
    }
+  
+  
+
+-------------------------------------------------------------------------------------
+
+ -Get All User Notes Endpoint Test-
+  
+   *GET  /api/notes
+   
+   *authorization: bearer <jwt_token>
 
 ----------------------------------------------------------------------
 
