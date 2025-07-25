@@ -36,6 +36,8 @@ const userSchema = new Schema({
     type: String, 
     // user has to have unique githubId//
     unique: true,
+    // but multiple users can have no Github ID--null--allows many null values//
+    sparse: true,
   }
 });
 
