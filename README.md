@@ -84,17 +84,17 @@ _Authentication Endpoints_
 
 *Register New User*
 
-POST   /appi/users/register
+POST   http://localhost:3000/api/users/register
 
 content-type: application/json 
 
 {
 
- "username": "usertestname",
+ "username": "rodeo",
  
- "email": "usertestname@gmail.com",
+ "email": "rodeo@example.com",
  
- "password": "password123"
+ "password": "rodeo123"
  
  }
 
@@ -105,9 +105,9 @@ POST  /api/users/login
 content-type:application/json
 
 {
-  "email": "user@example.com",
+  "email": "rodeo@example.com",
   
-  "password":"password123"
+  "password":"rodeo123"
 }
 
 
@@ -187,11 +187,12 @@ GET  /api/users/auth/github/callback  (Github callback URL)
   -Create New Bookmark-
    (in postman--- new HTTP request)
    
-  POST  /api/bookmarks
+  *POST  http://localhost:3000/api/bookmarks/
   
-  authorization: bearer <jwt token>
+  *use the token from user and add to the Authorization field--choose type and in dropdown select--Bearer token---paste token in the empty token field
   
   content-type: application/json
+  *click on the "Body" option---then click "raw" button---drop down select JSON--then in the body field type:
   
   {
   
@@ -199,11 +200,13 @@ GET  /api/users/auth/github/callback  (Github callback URL)
     
     "url": "https://www.google.com",
     
-    "description": "google search engine my fav",
-    
-    "tags": ["search", "web", "google"]
+    "description": "Search engine",
 
     }
+    <img width="1280" height="764" alt="image" src="https://github.com/user-attachments/assets/63498622-71b1-45b9-8fbe-a6bd6fe7e1d4" />
+
+    ----this will return the newly created bookmark information---
+
 
 
     -Update Bookmark-
