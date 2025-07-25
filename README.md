@@ -60,17 +60,25 @@ GITHUB_CALLBACK_URL=http://localhost:3000/api/users/auth/github/callback
 
 __MongoDB Setup__
 * create a mongoDB atlas account or use local mongoDB
+  
 * create a new database called notesapi
+  
 * update the MONGO_URI in your .env file
 
 
 __GitHub OAuth Setup__
 * go to Github settings -> developer settings -> OAuth Apps
+  
 * create a new OAuth app with:
+  
          * application name: Notes API
+
          * homepasge URI/URL: http://localhost: 3000
+  
          * callback URI/URL; http://localhost:3000/api/users/auth/github/callback
+  
          * copy client ID an client secret to your .env file
+
 
 __Start Server__
 
