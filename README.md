@@ -88,15 +88,18 @@ POST   http://localhost:3000/api/users/register
 
 content-type: application/json 
 
-{
 
- "username": "rodeo",
+
+{ 
+  "username": "rodeo",
  
  "email": "rodeo@example.com",
  
  "password": "rodeo123"
  
  }
+
+
 
 *Login User*
 
@@ -111,11 +114,14 @@ content-type:application/json
 }
 
 
+
 *GitHub OAuth (browser-based)*
 
 GET  /api/users/auth/github   (redirects to Github)
 
 GET  /api/users/auth/github/callback  (Github callback URL)
+
+
 
   __*Notes endpoints*__
   
@@ -126,6 +132,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
    GET  /api/notes
    
    authorization: bearer <jwt_token>
+
 
 
   -Create New Note-
@@ -143,6 +150,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
     "content": "Note content..."
     
   }
+
 
 
   -Update Note-
@@ -164,6 +172,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
 
 
 
+
    -Delete Note-
    
    DELETE  /api/notes/:noteId
@@ -176,15 +185,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
   _Bookmark Endpoints_
   All bookmark endpoints require JWT authenication via the authorization header
 
-  -Get all User Boookmarks-
-  (in postman--- new HTTP request)
-  
-  GET  /api/bookmarks
-  
-  authorization: bearer <jwt token>
-
-
-  -Create New Bookmark-
+   -Create New Bookmark-
    (in postman--- new HTTP request)
    
   *POST  http://localhost:3000/api/bookmarks/
@@ -203,10 +204,21 @@ GET  /api/users/auth/github/callback  (Github callback URL)
     "description": "Search engine",
 
     }
+    
     <img width="1280" height="764" alt="image" src="https://github.com/user-attachments/assets/63498622-71b1-45b9-8fbe-a6bd6fe7e1d4" />
 
     ----this will return the newly created bookmark information---
 
+    *add a few book marks with same user
+    *add a few book marks for another user
+
+
+  -Get all User Boookmarks-
+  (in postman--- new HTTP request)
+  
+  GET  /api/bookmarks
+  
+  authorization: bearer <jwt token>
 
 
     -Update Bookmark-
