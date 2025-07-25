@@ -44,6 +44,7 @@ router.post("/register", async (req, res)=> {
       return res.status(400).json({ message: "Wrong password!" });
     }
 
+    // success means they receive a token//
     const token = signToken(user);
     res.json({ token, user });
   });
@@ -63,11 +64,10 @@ router.get(
     session: false 
   }),
   (req, res) => {
-    //  `req.user` is the user profile returned from the verify callback.//
-    // now issue JWT to the user.//
+    // Github login worked---req.user has the user information from GitHub//
+    // give user token//
     const token = signToken(req.user);
-    // redirect the user to the frontend with the token, or send it in the response//
-    // res.redirect(`http://localhost:3000?token=${token}`);
+    // send back the token and the user info//
     res.json({ token, user: req.user });
   }
 );
