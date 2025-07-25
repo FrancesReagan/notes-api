@@ -40,25 +40,7 @@ __Install and set up__
   * `npm install --save-dev nodemon`
 
 
-__Environment Configuration__
-
-* get the Github client Id, secret, etc from the dev settings in Github
-  
-* create an .env file in the root directory: `env`  has this in it: 
-
-  `MONGO_URI=your_mongodb_connection_string
-
-  JWT_SECRET=your_jwt_secret
-
-  GITHUB_CLIENT_ID=your_github_client_id
-
-  GITHUB_CLIENT_SECRET=your_github_client_secret
-
-  GITHUB_CALLBACK_URL=http://localhost:3000/api/users/auth/github/callback`
-    
-    -----------------------------------------------------------------------------
-
-__MongoDB Setup__
+ __MongoDB Setup__
 * create a mongoDB atlas account or use local mongoDB
   
 * create a new database called notesapi
@@ -80,11 +62,32 @@ __GitHub OAuth Setup__
          * copy client ID an client secret to your .env file
 
 
+__Environment Configuration__
+
+* get the Github client Id, secret, etc from the dev settings in Github
+  
+* create an .env file in the root directory: `env`  has this in it: 
+
+  `MONGO_URI=your_mongodb_connection_string
+
+  JWT_SECRET=your_jwt_secret
+
+  GITHUB_CLIENT_ID=your_github_client_id
+
+  GITHUB_CLIENT_SECRET=your_github_client_secret
+
+  GITHUB_CALLBACK_URL=http://localhost:3000/api/users/auth/github/callback`
+    
+    -----------------------------------------------------------------------------
+
 __Start Server__
 
 npm run dev
 
 server runs on http://localhost:3000
+
+
+
 
 __API Endpoints__ to test
 
@@ -93,9 +96,12 @@ _Authentication Endpoints_
 *Register New User*
 
 POST   http://localhost:3000/api/users/register
+-In Postman -- create new HTTP request--select POST and use the endpoint above: 
 
 content-type: application/json 
+-click "body" -- click "raw" - select "JSON"
 
+-in body type:
 
 
 { 
