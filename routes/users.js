@@ -8,24 +8,38 @@ const router = express.Router();
 // POST   /api/users/register - create a new user//
 router.post("/register", async (req, res)=> {
   try {
+
+    // create new user with data from request body//
+    // the User model will automatically hash the password//
     const user = await User.create(req.body);
+
+    // give them an ID card(JWT token) immediately after signup//
     const token = signToken(user);
+
+    // send back the token and user information//
     res.status(201).json({ token, user});
+
+    // error happened --email may have already been made//
   } catch (err) {
     res.status(400).json(err);
   }
   });
 
+  // Logging in to existing account//
   // POST  /api/users/login - authenticate a user and return a token//
   router.post("/login", async (req,res) => {
+    // find the user with this email in the database//
     const user = await User.findOne({ email: req.body.email });
 
+    // if no user is found--- it is the wrong email...//
     if(!user) {
       return res.status(400).json({ message: "Can't find this user" });
     }
 
+    // does password match?//
     const correctPw = await user.isCorrectPassword(req.body.password);
 
+    // if wrong password -- return error//
     if(!correctPw) {
       return res.status(400).json({ message: "Wrong password!" });
     }
