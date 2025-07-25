@@ -254,12 +254,19 @@ GET  /api/users/auth/github/callback  (Github callback URL)
    -Delete Note Endpoint Test-
    
    DELETE  /api/notes/:noteId
+   
    http://localhost:3000/api/notes/6883b069e1baaa193a65d2f2
+   
    find note by its id:6883b069e1baaa193a65d2f2 and Delete it
+   
    ensure the user associated with the note has her/his token in the authorization:
+   
    authorization: bearer <jwt token>
+   
    clik "send"
+   
    and in body response get "200 OK" status and the object 
+   
    {"message":"Note deleted"}
 
 
