@@ -91,9 +91,9 @@ server runs on http://localhost:3000
 
 __API Endpoints__ to test
 
-_Authentication Endpoints_
-
-*Register New User*
+__Authentication Endpoints__
+_USER endpoints_
+_*Register New User* endpoint test_
 
 POST   http://localhost:3000/api/users/register
 -In Postman -- create new HTTP request--select POST and use the endpoint above: 
@@ -117,7 +117,9 @@ content-type: application/json
 
 
 
-*Login User*
+---------------------------------------------------------------------
+
+_*Login User* endpoint test_
 
 POST  /api/users/login
 
@@ -133,6 +135,8 @@ content-type:application/json
 }
 
 
+--------------------------------------------------------------------------
+
 
 *GitHub OAuth (browser-based)*
 
@@ -142,6 +146,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
 
 
 
+---------------------------------------------------------------------------------------------
   __*Notes endpoints*__
   
   -All note endpoints require JWT authentication via an authorization header-
