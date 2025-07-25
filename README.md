@@ -105,13 +105,13 @@ content-type: application/json
 
 
 { 
-  "username": "rodeo",
+  "username": "Space-Kitten",
   
  
- "email": "rodeo@example.com",
+ "email": "spacedoutcat@cat.com",
  
  
- "password": "rodeo123"
+ "password": "huntandplay2"
  
  }
 
