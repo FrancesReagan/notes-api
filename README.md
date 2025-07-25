@@ -167,10 +167,6 @@ GET  /api/users/auth/github/callback  (Github callback URL)
 
 
 
- 
-
-
-
   -Update Note-
   
   PUT  /api/notes/:noteId
@@ -182,9 +178,9 @@ GET  /api/users/auth/github/callback  (Github callback URL)
   
   {
   
-   "title": "Updated Note Title",
+   "title": "Getting used to being 1 of 5 cats...",
    
-   "content": "Updated content here..."
+   "content": "Now there are 5 cats, 3 dogs, a guinea pig....crazy"
    
    }
 
