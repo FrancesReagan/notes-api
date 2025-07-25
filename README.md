@@ -126,8 +126,32 @@ GET  /api/users/auth/github/callback  (Github callback URL)
   __*Notes endpoints*__
   
   -All note endpoints require JWT authentication via an authorization header-
+
+   -Create New Note Endpoint-
+   
+  *in Postman--new HTTP request---select "POST" for new post request---then put in the endpoint desired to create a new note:
+  *POST  http://localhost:3000/api/notes/
   
-  -Get All User Notes-
+  *authorization: bearer <jwt_token>
+  -Click on "Authorization"---then select type --"Bearer Token"---then put in the token from the user created earlier
+    
+  *content-type: application/json
+  -Click on "Body" ---then select "JSON" in dropdown--then type in the body section
+  
+  {
+  
+    "title": "My Kitty Notes",
+    
+    "content": "Its a cat's life for sure--purring around today----looking for tuna."
+    
+  }
+
+
+ -Click "Send"---then look in the body --"Raw" to see status if created successfully "201 Created" and the title and content now associated with the user and user's id"
+
+  ----------------------------------------------------------------
+  
+  -Get All User Notes Endpoint-
   
    GET  /api/notes
    
@@ -135,21 +159,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
 
 
 
-  -Create New Note-
-  
-  POST  /api/notes
-  
-  authorization: bearer <jwt_token>
-  
-  content-type: application/json
-  
-  {
-  
-    "title": "My Notes Today",
-    
-    "content": "Note content..."
-    
-  }
+ 
 
 
 
@@ -205,10 +215,6 @@ GET  /api/users/auth/github/callback  (Github callback URL)
     "description": "Search engine",
 
     }
-   
-    (NewBookMark)[<img width="1280" height="764" alt="image" src="https://github.com/user-attachments/assets/63498622-71b1-45b9-8fbe-a6bd6fe7e1d4" />]
-
-    ----this will return the newly created bookmark information---
 
     *add a few book marks with same user
     *add a few book marks for another user
