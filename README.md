@@ -118,19 +118,21 @@ content-type: application/json
 
 
 ---------------------------------------------------------------------
-{In postman--new HTTP REQUEST}
+
 _*Login User* endpoint test_
-
-POST  /api/users/login
-
-content-type:application/json
+-In Postman--click "New HTTP Request"
+*POST  /api/users/login
+ -endpoint to test: http://localhost:3000/api/users/login
+ 
+-content-type:application/json
+ -click "body" -- click "raw" --- select "JSON"  -- then type in the body:
 
 {
 
-  "email": "rodeo@example.com",
+  "email": "spacedoutcat@cat.com",
   
   
-  "password":"rodeo123"
+  "password":"huntandplay2"
   
 }
 
