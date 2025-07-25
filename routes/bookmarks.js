@@ -20,11 +20,13 @@ router.get("/", async (req, res) => {
   }
 });
 
-// POST  /api/bookmarks - create a new bookmark//
+// POST  /api/bookmarks - create a new bookmark---saving a new bookmark//
 router.post("/", async (req, res) => {
   try {
     const bookmark = await Bookmark.create({
+      // bookmark data (title, url, etc)
       ...req.body,
+    // auto assign to loggen in user//
       user: req.user._id,
     });
     res.status(201).json(bookmark);
@@ -33,19 +35,27 @@ router.post("/", async (req, res) => {
   }
 }); 
 
-// PUT  /api/bookmarks/:id --update a bookmark//
+// PUT  /api/bookmarks/:id --update a bookmark----editing an existing boookmark//
 router.put("/:id", async (req, res) => {
   try {
+    // first find the bookmark the user wants to update//
     const bookmarkToUpdate = await Bookmark.findById(req.params.id);
 
+    // if the book mark does not exist--then return the error message//
     if(!bookmarkToUpdate) {
       return res.status(404).json({ message: "No bookmark found with this id"});
     }
-    // authorization check//
+    // authorization check---ensure the user in question actually owns this bookmark----if they don't pass authorization check--then return error message//
     if (bookmarkToUpdate.user.toString()!==req.user._id.toString()) {
       return res.status(403).json({ message: "User is not authorized to update this bookmark."});
     }
-    const bookmark = await Bookmark.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    // user is authenicated --then go ahead and update the bookmark//
+    const bookmark = await Bookmark.findByIdAndUpdate(
+      req.params.id, 
+      req.body, 
+      // return the updated bookmark//
+      { new: true }
+    );
     res.json(bookmark);
 
   } catch (err) {
