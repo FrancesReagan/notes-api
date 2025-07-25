@@ -100,8 +100,10 @@ content-type: application/json
 
 { 
   "username": "rodeo",
+  
  
  "email": "rodeo@example.com",
+ 
  
  "password": "rodeo123"
  
@@ -116,9 +118,12 @@ POST  /api/users/login
 content-type:application/json
 
 {
+
   "email": "rodeo@example.com",
   
+  
   "password":"rodeo123"
+  
 }
 
 
@@ -138,13 +143,16 @@ GET  /api/users/auth/github/callback  (Github callback URL)
    -Create New Note Endpoint-
    
   *in Postman--new HTTP request---select "POST" for new post request---then put in the endpoint desired to create a new note:
+  
   *POST  http://localhost:3000/api/notes/
+  
   
   *authorization: bearer <jwt_token>
   -Click on "Authorization"---then select type --"Bearer Token"---then put in the token from the user created earlier
     
   *content-type: application/json
   -Click on "Body" ---then select "JSON" in dropdown--then type in the body section
+
   
   {
   
@@ -157,7 +165,9 @@ GET  /api/users/auth/github/callback  (Github callback URL)
 
  -Click "Send"---then look in the body --"Raw" to see status if created successfully "201 Created" and the title and content now associated with the user and user's id"
 
+
   ----------------------------------------------------------------
+
   
   -Get All User Notes Endpoint-
   
@@ -194,6 +204,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
    authorization: bearer <jwt token>
 
 
+
   --------------------------------------------------------
 
   _Bookmark Endpoints_
@@ -212,11 +223,11 @@ GET  /api/users/auth/github/callback  (Github callback URL)
   
   
    {
-     "title": "Google",
+     "title": "Cat-World",
     
-    "url": "https://www.google.com",
+    "url": "https://cat-world.com/",
     
-    "description": "Search engine",
+    "description": "All about Cats",
 
     }
 
