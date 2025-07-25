@@ -1,15 +1,18 @@
+import express from "express";
 import Bookmark from "../models/Bookmark.js";
 import { authMiddleware } from "../utils/auth.js";
 
 const router = express.Router();
 
-// apply authMiddleware to all routes in this file//
+// apply authMiddleware to all routes in this file----security//
 router.use(authMiddleware);
 
-// GET  /api/bookmarks -get all bookmarks for logged in user//
+// GET  /api/bookmarks -get all bookmarks for logged in user---this is like opening your personal bookmark folder//
 
 router.get("/", async (req, res) => {
   try {
+    // only find the bookmarks that belong to this user//
+    // req.user._id comes from the authMiddleware//
     const bookmarks = await Bookmark.find({ user: req.user._id });
     res.json(bookmarks);
   } catch (err) {
