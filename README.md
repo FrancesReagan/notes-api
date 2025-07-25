@@ -46,15 +46,15 @@ __Environment Configuration__
   
 * create an .env file in the root directory: `env`  has this in it: 
 
-MONGO_URI=your_mongodb_connection_string
+  `MONGO_URI=your_mongodb_connection_string
 
-JWT_SECRET=your_jwt_secret
+  JWT_SECRET=your_jwt_secret
 
-GITHUB_CLIENT_ID=your_github_client_id
+  GITHUB_CLIENT_ID=your_github_client_id
 
-GITHUB_CLIENT_SECRET=your_github_client_secret
+  GITHUB_CLIENT_SECRET=your_github_client_secret
 
-GITHUB_CALLBACK_URL=http://localhost:3000/api/users/auth/github/callback
+  GITHUB_CALLBACK_URL=http://localhost:3000/api/users/auth/github/callback`
     
     -----------------------------------------------------------------------------
 
