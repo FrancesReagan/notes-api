@@ -145,20 +145,19 @@ GET  /api/users/auth/github/callback  (Github callback URL)
   *in Postman--new HTTP request---select "POST" for new post request---then put in the endpoint desired to create a new note:
   
   *POST  http://localhost:3000/api/notes/
-  
-  
   *authorization: bearer <jwt_token>
   -Click on "Authorization"---then select type --"Bearer Token"---then put in the token from the user created earlier
     
   *content-type: application/json
   -Click on "Body" ---then select "JSON" in dropdown--then type in the body section
+  (creating note for user Space-Kitten)
 
   
   {
   
-    "title": "My Kitty Notes",
+    "title": "Exploring the woods",
     
-    "content": "Its a cat's life for sure--purring around today----looking for tuna."
+    "content": "Lots of woods near my house--perfect for playing and hunting."
     
   }
 
@@ -171,26 +170,26 @@ GET  /api/users/auth/github/callback  (Github callback URL)
   
   -Get All User Notes Endpoint-
   
-   GET  /api/notes
+   *GET  /api/notes
    
-   authorization: bearer <jwt_token>
+   *authorization: bearer <jwt_token>
 
 
 
   -Update Note-
   
-  PUT  /api/notes/:noteId
+  *PUT  /api/notes/:noteId
+  -http://localhost:3000/api/notes/6883b069e1baaa193a65d2f2
   
-  authorization: bearer <jwt token>
+  *authorization: bearer <jwt token>
   
-  content-type: application/json
-  
-  
+  *content-type: application/json
+  (updating a note for user Space-kitten(6883afc0e1baaa19a65d2f0) with associated note from before 6883b069e1baaa193a65d2f2)
   {
   
-   "title": "Getting used to being 1 of 5 cats...",
+   "title": "Exiting the woods",
    
-   "content": "Now there are 5 cats, 3 dogs, a guinea pig....crazy"
+   "content": "Nevermind the woods are full of stray dogs"
    
    }
 
@@ -200,8 +199,13 @@ GET  /api/users/auth/github/callback  (Github callback URL)
    -Delete Note-
    
    DELETE  /api/notes/:noteId
-   
+   http://localhost:3000/api/notes/6883b069e1baaa193a65d2f2
+   find note by its id:6883b069e1baaa193a65d2f2 and Delete it
+   ensure the user associated with the note has her/his token in the authorization:
    authorization: bearer <jwt token>
+   clik "send"
+   and in body response get "200 OK" status and the object 
+   {"message":"Note deleted"}
 
 
 
