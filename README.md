@@ -157,14 +157,17 @@ __*Login User* endpoint test__
 --------------------------------------------------------------------------
 
 
-*GitHub OAuth (browser-based)*
+__*GitHub OAuth (browser-based)*__
+
 
 *OAuth is meant for testing the "login with Github" buttons--not direct API testing--
+
 
 --To Test GitHub OAuth Flow: 
 
 
 *GET  /api/users/auth/github   (redirects to Github)
+
 
 -open browser --- paste `http://localhost:3000/api/users/auth/github`
 
@@ -174,8 +177,9 @@ __*Login User* endpoint test__
 
 -you have authorized the app
 
-
 -GitHub sends you back to your callback URL
+
+
 
 GET  /api/users/auth/github/callback  (Github callback URL)
 
