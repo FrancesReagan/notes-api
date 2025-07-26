@@ -591,34 +591,76 @@ __Security Practices Implemented__
 * CORS considerations: configured for API use
 ------------------------------------------------------------------------------------    
 __References:__
+
 * Backend Framework: Express.js - Web framework for Node.js [Express Documentation](https://expressjs.com/)
+
  
 * Database: MongoDB - NoSQL document database [MongoDB Documentation](https://docs.mongodb.com/), -MongoDB object modeling for Node.js - [Mongoose Documentation](https://mongoosejs.com/docs/)
 
+
 * Authentication & Security:
+  
   -bcrypt - password hashing library  [bcrypt npm package](https://www.npmjs.com/package/bcrypt)
+  
   -jsonwebtoken - JWT implementation for Node.js   [JWT Documentation](https://jwt.io/)
+  
   -passport - authentication [Passport Documentation](http://www.passportjs.org/)
+  
   -passport-github2 - GitHub OAuth 2.0 strategy [passport-github2 npm](https://www.npmjs.com/package/passport-github2)
 
+
 *Middleware & Configuration:
+
   -cors - cross-origin resource sharing middleware [CORS Documentation](https://www.npmjs.com/package/cors)
+  
   -dotenv - environment variable management [dotenv Documentation](https://www.npmjs.com/package/dotenv)
 
+
 *Development Tools:
+
  -nodemon - development server with auto-restart [nodemon Documentation](https://nodemon.io/)
+
+
 
  _External Services_
 
  *Database Hosting:
+ 
   - MongoDB Atlas - cloud MongoDB hosting service [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
 
+
  *OAuth Provider: 
+ 
   -GitHub OAuth Apps - OAuth 2.0 authentication [GitHub OAuth Documentation](https://docs.github.com/en/apps/oauth-apps)
 
+
 _Learning Resources_
+
 *RESTful api design: [REST API Design Guide](https://restfulapi.net/) , [HTTP Status Codes](https://httpstatuses.com/)
 
+*MongoDB & Mongoose: [Mongoose Schema Guide](https://mongoosejs.com/docs/guide.html) , [MongoDB CRUD Operations](https://docs.mongodb.com/manual/crud/)
+
+*Password Security: [bcrypt Explained](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/) , [Password Hashing Best Practices](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
+
+
+_Testing Tools_
+
+*Postman: API testing platform: [Postman Documentation](https://learning.postman.com/)
+
+
+_API Standards_
+
+*RESTful APIs: arhitectural style for web services.
+
+*JSON: data interchange format.
+
+*HTTP methods: POST, GET, PUT, DELETE
+
+*HTTP status codes: 200, 201, 400, 401 , 403 , 404 , 500
+
+--------------------------------------------------------------------------------------------------
+Acknowledgements: Thank you to my instructors: Colton Wright and Abraham Tavarez and my fellow classmates in 2025-RT-23 cohort for helping me with this project -- your guidance
+is invaluable. 
            
  
   
