@@ -124,7 +124,7 @@ content-type: application/json
 
 ---------------------------------------------------------------------
 
-_*Login User* endpoint test_
+__*Login User* endpoint test__
 
 -In Postman--click "New HTTP Request"
 
@@ -159,7 +159,7 @@ _*Login User* endpoint test_
 --To Test GitHub OAuth Flow: 
 
 
-GET  /api/users/auth/github   (redirects to Github)
+*GET  /api/users/auth/github   (redirects to Github)
 
 -open browser --- paste `http://localhost:3000/api/users/auth/github`
 
@@ -168,6 +168,7 @@ GET  /api/users/auth/github   (redirects to Github)
 -login with your Github account
 
 -you have authorized the app
+
 
 -GitHub sends you back to your callback URL
 
@@ -203,7 +204,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
   
   -All note endpoints require JWT authentication via an authorization header-
 
-   _Create New Note Endpoint Test_
+   __Create New Note Endpoint Test__
 
    
   *in Postman--new HTTP request---select "POST" for new post request---then put in the endpoint desired to create a new note:
@@ -238,7 +239,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
 
   ----------------------------------------------------------------
   
- -Update Note Endpoint Test-
+ __Update Note Endpoint Test__
   
   *PUT  /api/notes/:noteId
   
@@ -263,15 +264,14 @@ GET  /api/users/auth/github/callback  (Github callback URL)
 
 -------------------------------------------------------------------------------------
 
- -Get All User Notes Endpoint Test-
-  
+ __Get All User Notes Endpoint Test__
+
    *GET  /api/notes
    
    -In Postman --- create new HTTP Request---select "GET" --- put this endpoint in:
    
    http://localhost:3000/api/notes
 
-   
    *authorization: bearer <jwt_token>
    
     -click Authorization ---in Type ---select Bearer token ----in Token  put the user's  (whose notes you want) token
@@ -286,7 +286,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
 ----------------------------------------------------------------------
 
 
-   -Delete Note Endpoint Test-
+   __Delete Note Endpoint Test__
    
    DELETE  /api/notes/:noteId
    
@@ -308,7 +308,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
 
   --------------------------------------------------------
 
-  _Bookmark Endpoints_
+  __Bookmark Endpoints__
   
   All bookmark endpoints require JWT authenication via the authorization header
 
@@ -340,7 +340,8 @@ GET  /api/users/auth/github/callback  (Github callback URL)
     *add a few book marks for another user
 
 
-  -Get all User Boookmarks-
+
+  __Get all User Boookmarks__
   
   (in postman--- new HTTP request)
   
@@ -349,7 +350,8 @@ GET  /api/users/auth/github/callback  (Github callback URL)
   authorization: bearer <jwt token>
 
 
-    -Update Bookmark-
+
+    __Update Bookmark__
     
      (in postman--- new HTTP request)
      
@@ -372,7 +374,8 @@ GET  /api/users/auth/github/callback  (Github callback URL)
 
 
 
-    -Delete Bookmark-
+
+    __Delete Bookmark__
     (same as notes above)
      (in postman--- new HTTP request)
      
