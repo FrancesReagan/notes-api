@@ -245,8 +245,16 @@ GET  /api/users/auth/github/callback  (Github callback URL)
  -Get All User Notes Endpoint Test-
   
    *GET  /api/notes
+   -In Postman --- create new HTTP Request---select "GET" --- put this endpoint in:
+   http://localhost:3000/api/notes
    
    *authorization: bearer <jwt_token>
+    -click Authorization ---in Type ---select Bearer token ----in Token  put the user's  (whose notes you want) token
+    -Click Send
+    -If successful will return in the body: Status: 200 OK  and in Raw: all the notes associated with that particular user
+
+   <img width="1280" height="764" alt="image" src="https://github.com/user-attachments/assets/12be4241-e2a3-406b-8f08-63497471c9a6" />
+
 
 ----------------------------------------------------------------------
 
