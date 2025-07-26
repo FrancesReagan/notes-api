@@ -385,6 +385,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
 
 
     __Delete Bookmark__
+    
     (same as notes above)
      (in postman--- new HTTP request)
      
@@ -653,25 +654,25 @@ __Learning Resources__
 
 * __RESTful api design:__ [REST API Design Guide](https://restfulapi.net/) , [HTTP Status Codes](https://httpstatuses.com/)
 
-*MongoDB & Mongoose: [Mongoose Schema Guide](https://mongoosejs.com/docs/guide.html) , [MongoDB CRUD Operations](https://docs.mongodb.com/manual/crud/)
+* __MongoDB & Mongoose:__ [Mongoose Schema Guide](https://mongoosejs.com/docs/guide.html) , [MongoDB CRUD Operations](https://docs.mongodb.com/manual/crud/)
 
-*Password Security: [bcrypt Explained](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/) , [Password Hashing Best Practices](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
-
-
-_Testing Tools_
-
-*Postman: API testing platform: [Postman Documentation](https://learning.postman.com/)
+* __Password Security:__ [bcrypt Explained](https://auth0.com/blog/hashing-in-action-understanding-bcrypt/) , [Password Hashing Best Practices](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
 
 
-_API Standards_
+__Testing Tools__
 
-*RESTful APIs: arhitectural style for web services.
+* __Postman:__ API testing platform: [Postman Documentation](https://learning.postman.com/)
 
-*JSON: data interchange format.
 
-*HTTP methods: POST, GET, PUT, DELETE
+__API Standards__
 
-*HTTP status codes: 200, 201, 400, 401 , 403 , 404 , 500
+* RESTful APIs: arhitectural style for web services.
+
+* JSON: data interchange format.
+
+* HTTP methods: POST, GET, PUT, DELETE
+
+* HTTP status codes: 200, 201, 400, 401 , 403 , 404 , 500
 
 --------------------------------------------------------------------------------------------------
 __Acknowledgements:__ Thank you to my instructors: Colton Wright and Abraham Tavarez and my fellow classmates in 2025-RT-23 cohort for helping me with this project -- your guidance
