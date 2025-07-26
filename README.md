@@ -92,13 +92,17 @@ server runs on http://localhost:3000
 __API Endpoints__ to test
 
 __Authentication Endpoints__
+
 _USER endpoints_
+
 _*Register New User* endpoint test_
 
 POST   http://localhost:3000/api/users/register
+
 -In Postman -- create new HTTP request--select POST and use the endpoint above: 
 
 content-type: application/json 
+
 -click "body" -- click "raw" - select "JSON"
 
 -in body type:
@@ -121,11 +125,15 @@ content-type: application/json
 ---------------------------------------------------------------------
 
 _*Login User* endpoint test_
+
 -In Postman--click "New HTTP Request"
+
 *POST  /api/users/login
+
  -endpoint to test: http://localhost:3000/api/users/login
  
 -content-type:application/json
+
  -click "body" -- click "raw" --- select "JSON"  -- then type in the body:
 
 {
@@ -145,6 +153,7 @@ _*Login User* endpoint test_
 
 
 *GitHub OAuth (browser-based)*
+
 *OAuth is meant for testing the "login with Github" buttons--not direct API testing--
 
 --To Test GitHub OAuth Flow: 
@@ -195,15 +204,21 @@ GET  /api/users/auth/github/callback  (Github callback URL)
   -All note endpoints require JWT authentication via an authorization header-
 
    _Create New Note Endpoint Test_
+
    
   *in Postman--new HTTP request---select "POST" for new post request---then put in the endpoint desired to create a new note:
   
   *POST  http://localhost:3000/api/notes/
+  
   *authorization: bearer <jwt_token>
+  
   -Click on "Authorization"---then select type --"Bearer Token"---then put in the token from the user created earlier
+
     
   *content-type: application/json
+  
   -Click on "Body" ---then select "JSON" in dropdown--then type in the body section
+  
   (creating note for user Space-Kitten)
 
   
@@ -217,19 +232,25 @@ GET  /api/users/auth/github/callback  (Github callback URL)
 
 
  -Click "Send"---then look in the body --"Raw" to see status if created successfully "201 Created" and the title and content now associated with the user and user's id"
+ 
 <img width="1280" height="764" alt="image (7)" src="https://github.com/user-attachments/assets/15993296-59b5-4cb4-93b1-4201e89e8885" />
 
 
   ----------------------------------------------------------------
+  
  -Update Note Endpoint Test-
   
   *PUT  /api/notes/:noteId
+  
   -http://localhost:3000/api/notes/6883b069e1baaa193a65d2f2
+
   
   *authorization: bearer <jwt token>
   
   *content-type: application/json
+  
   (updating a note for user Space-kitten(6883afc0e1baaa19a65d2f0) with associated note from before 6883b069e1baaa193a65d2f2)
+  
   {
   
    "title": "Exiting the woods",
@@ -245,12 +266,18 @@ GET  /api/users/auth/github/callback  (Github callback URL)
  -Get All User Notes Endpoint Test-
   
    *GET  /api/notes
+   
    -In Postman --- create new HTTP Request---select "GET" --- put this endpoint in:
+   
    http://localhost:3000/api/notes
+
    
    *authorization: bearer <jwt_token>
+   
     -click Authorization ---in Type ---select Bearer token ----in Token  put the user's  (whose notes you want) token
+    
     -Click Send
+    
     -If successful will return in the body: Status: 200 OK  and in Raw: all the notes associated with that particular user
 
    <img width="1280" height="764" alt="image" src="https://github.com/user-attachments/assets/12be4241-e2a3-406b-8f08-63497471c9a6" />
@@ -282,9 +309,11 @@ GET  /api/users/auth/github/callback  (Github callback URL)
   --------------------------------------------------------
 
   _Bookmark Endpoints_
+  
   All bookmark endpoints require JWT authenication via the authorization header
 
    -Create New Bookmark-
+   
    (in postman--- new HTTP request)
    
   *POST  http://localhost:3000/api/bookmarks/
@@ -292,6 +321,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
   *use the token from user and add to the Authorization field--choose type and in dropdown select--Bearer token---paste token in the empty token field
   
   content-type: application/json
+  
   *click on the "Body" option---then click "raw" button---drop down select JSON--then in the body field type:
   
   
@@ -306,10 +336,12 @@ GET  /api/users/auth/github/callback  (Github callback URL)
     }
 
     *add a few book marks with same user
+    
     *add a few book marks for another user
 
 
   -Get all User Boookmarks-
+  
   (in postman--- new HTTP request)
   
   GET  /api/bookmarks
@@ -318,6 +350,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
 
 
     -Update Bookmark-
+    
      (in postman--- new HTTP request)
      
     PUT  /api/bookmarks/:bookmarkId
@@ -325,6 +358,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
     authorization: bearer <jwt token>
     
     content-type: application/json
+
 
     {
     
@@ -337,7 +371,9 @@ GET  /api/users/auth/github/callback  (Github callback URL)
       }
 
 
+
     -Delete Bookmark-
+    (same as notes above)
      (in postman--- new HTTP request)
      
     DELETE  /api/bookmarks/:bookmarkId
@@ -347,31 +383,54 @@ GET  /api/users/auth/github/callback  (Github callback URL)
     --------------------------------------------
     
   __Data Models__
+  
   _User Model_
+  
   {
    username: String (required, unique),
+   
    email: String (required, unique, validated),
+   
    password: String (hashed, required if no githubId),
+   
    githubId: String (unique, for OAuth users),
+   
    createdAt: Date.now
+   
    }
 
+
    _Note Model_
+   
    {
+   
     title: String (required),
+    
     content: String (required),
+    
     createdAt: Date.now,
+    
     user: ObjectId (reference to User, required)
+    
     }
 
+
     _Bookmark Model_
+    
     {
+    
       title: String (required),
+      
       url: String (required),
+      
       description: String (optional),
+      
       tags:[String] (array of tags),
+      
       createdAt: Date.now,
+      
       user: ObjectId(reference to User,required)
+      
     }
 
     --------------------------------------------------
@@ -381,13 +440,20 @@ GET  /api/users/auth/github/callback  (Github callback URL)
     _JWT Token Authentication_
     
     * all protected routes require a valid JWT token.
+    
     * token must be included in the Authorization header as a Bearer <token>.
+    
     * tokens expire after 2 hrs.
+    
     * users can only access their own resources
+    
 
     _Password Security_
+    
     * passwords are hashed using bcrypt with 10 salt rounds
+    
     * min passwords length: 5 characters.
+    
     * password validation occurs on user registration and login
 
     _Authorization_
@@ -398,29 +464,49 @@ GET  /api/users/auth/github/callback  (Github callback URL)
     -------------------------------------------------------------------------
     
   _Testing with Postman_
+  
   * authentication flow
+  * 
     - register user or Login user to get JWT token
+      
     - copy the token from the successful response.
+      
     - add authorization header to all requests after: authorization: Bearer <token>.
-
+   
+      
   * testing notes
+    
     - create notes with POST /api/notes
+      
     - retrieve all  notes with GET /api/notes
+      
     - update specific note with PUT /api/notes/:id
+      
     - delete note with DELETE /api/notes/:id
 
+
   * testing bookmarks
+    
     - create bookmarks with POST  /api/bookmarks
+      
     - retrieve all bookmarks with GET /api/bookmarks
+      
     - update specific bookmark with PUT /api/bookmarks/:id
+      
     - delete bookmark with DELETE /api/bookmarks/:id
 
+
   * security testing
+    
     - test accessing endpoints without the Authorization header ( this is supposed to return 401)
+      
     - test accessing another user's resources (this is supposed to return 403)
+      
     - test with invalid/expired tokens (this is supposed to return 401)
+      
    
 _Sample data for testing_
+
 *Sample Note
 {
 
@@ -519,7 +605,20 @@ __References:__
   -cors - cross-origin resource sharing middleware [CORS Documentation](https://www.npmjs.com/package/cors)
   -dotenv - environment variable management [dotenv Documentation](https://www.npmjs.com/package/dotenv)
 
-*Development Tools
+*Development Tools:
+ -nodemon - development server with auto-restart [nodemon Documentation](https://nodemon.io/)
+
+ _External Services_
+
+ *Database Hosting:
+  - MongoDB Atlas - cloud MongoDB hosting service [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+
+ *OAuth Provider: 
+  -GitHub OAuth Apps - OAuth 2.0 authentication [GitHub OAuth Documentation](https://docs.github.com/en/apps/oauth-apps)
+
+_Learning Resources_
+*RESTful api design: [REST API Design Guide](https://restfulapi.net/) , [HTTP Status Codes](https://httpstatuses.com/)
+
            
  
   
