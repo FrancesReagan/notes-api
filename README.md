@@ -604,15 +604,16 @@ __Security Practices Implemented__
 * environment variables: secret or sensitive data stored in .env file
 * CORS considerations: configured for API use
 ------------------------------------------------------------------------------------    
+
 __References:__
 
-* Backend Framework: Express.js - Web framework for Node.js [Express Documentation](https://expressjs.com/)
+* __Backend Framework:__ Express.js - Web framework for Node.js [Express Documentation](https://expressjs.com/)
 
  
-* Database: MongoDB - NoSQL document database [MongoDB Documentation](https://docs.mongodb.com/), -MongoDB object modeling for Node.js - [Mongoose Documentation](https://mongoosejs.com/docs/)
+* __Database:__ MongoDB - NoSQL document database [MongoDB Documentation](https://docs.mongodb.com/), -MongoDB object modeling for Node.js - [Mongoose Documentation](https://mongoosejs.com/docs/)
 
 
-* Authentication & Security:
+* __Authentication & Security:__
   
   -bcrypt - password hashing library  [bcrypt npm package](https://www.npmjs.com/package/bcrypt)
   
@@ -623,34 +624,34 @@ __References:__
   -passport-github2 - GitHub OAuth 2.0 strategy [passport-github2 npm](https://www.npmjs.com/package/passport-github2)
 
 
-*Middleware & Configuration:
+* __Middleware & Configuration:__
 
   -cors - cross-origin resource sharing middleware [CORS Documentation](https://www.npmjs.com/package/cors)
   
   -dotenv - environment variable management [dotenv Documentation](https://www.npmjs.com/package/dotenv)
 
 
-*Development Tools:
+* __Development Tools:__
 
  -nodemon - development server with auto-restart [nodemon Documentation](https://nodemon.io/)
 
 
 
- _External Services_
+ __External Services__
 
- *Database Hosting:
+ * __Database Hosting:__
  
   - MongoDB Atlas - cloud MongoDB hosting service [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
 
 
- *OAuth Provider: 
+ * __OAuth Provider__: 
  
   -GitHub OAuth Apps - OAuth 2.0 authentication [GitHub OAuth Documentation](https://docs.github.com/en/apps/oauth-apps)
 
 
-_Learning Resources_
+__Learning Resources__
 
-*RESTful api design: [REST API Design Guide](https://restfulapi.net/) , [HTTP Status Codes](https://httpstatuses.com/)
+* __RESTful api design:__ [REST API Design Guide](https://restfulapi.net/) , [HTTP Status Codes](https://httpstatuses.com/)
 
 *MongoDB & Mongoose: [Mongoose Schema Guide](https://mongoosejs.com/docs/guide.html) , [MongoDB CRUD Operations](https://docs.mongodb.com/manual/crud/)
 
