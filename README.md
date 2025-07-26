@@ -41,6 +41,7 @@ __Install and set up__
 
 
  __MongoDB Setup__
+ 
 * create a mongoDB atlas account or use local mongoDB
   
 * create a new database called notesapi
@@ -48,10 +49,14 @@ __Install and set up__
 * update the MONGO_URI in your .env file
 
 
+
 __GitHub OAuth Setup__
+
 * go to Github settings -> developer settings -> OAuth Apps
   
+  
 * create a new OAuth app with:
+  
   
          * application name: Notes API
 
