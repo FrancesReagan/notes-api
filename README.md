@@ -466,7 +466,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
 
     -------------------------------------------------------------------------
     
-  _Testing with Postman_
+  __Testing with Postman__
   
   * authentication flow
   * 
@@ -508,7 +508,7 @@ GET  /api/users/auth/github/callback  (Github callback URL)
     - test with invalid/expired tokens (this is supposed to return 401)
       
    
-_Sample data for testing_
+__Sample data for testing__
 
 *Sample Note
 {
@@ -538,6 +538,7 @@ _Sample data for testing_
 
 __Error Handling__
 _Common HTTP Status Codes_
+
 * 200 - Success
 * 201 - created ...successful POST requests
 * 400 - bad request --validation errors and or missing fields.
@@ -567,6 +568,7 @@ _Example error responses_
   ------------------------------------------------------------------------------
 
   __Development Scripts__
+  
   `npm run dev` -- starts the development server with nodemon
 
   _Dependencies_
@@ -662,7 +664,7 @@ _API Standards_
 *HTTP status codes: 200, 201, 400, 401 , 403 , 404 , 500
 
 --------------------------------------------------------------------------------------------------
-Acknowledgements: Thank you to my instructors: Colton Wright and Abraham Tavarez and my fellow classmates in 2025-RT-23 cohort for helping me with this project -- your guidance
+__Acknowledgements:__ Thank you to my instructors: Colton Wright and Abraham Tavarez and my fellow classmates in 2025-RT-23 cohort for helping me with this project -- your guidance
 is invaluable. 
            
  
