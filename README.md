@@ -9,6 +9,9 @@ It is built with node.js, express, mongodb, and JWT authenication.
 
 This API features standard email/password authentication and GitHub OAuth integration.
 
+
+(NOTE: All credentials shown in this README file are test/example data for testing)
+
 ----------------------------------------------------------------------
 
 __Features__
